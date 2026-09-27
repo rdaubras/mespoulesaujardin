@@ -19,6 +19,10 @@ Alt text : Meilleur poulailler pour jardin famille Omlet 2025
 
 ---
 
+<!-- NOTE THÉO : les prix ci-dessous sont des fourchettes indicatives (source : docs/MARCUS-affiliation-omlet.md). Vérifier les prix exacts sur omlet.fr au moment de la publication, le réseau de cette session bloquant l'accès à omlet.fr. -->
+
+---
+
 Ça fait des mois que ma communauté TikTok me pose la même question. Quel poulailler choisir ?
 
 Et à chaque fois, ma réponse commence pareil : ça dépend. Du nombre de poules. Du budget. De si vous supportez de nettoyer pendant une heure ou pas.
@@ -29,9 +33,9 @@ Après avoir testé plusieurs modèles et comparé des dizaines d'options, voici
 
 | # | Modèle | Pour qui | Prix approx. |
 |---|--------|----------|-------------|
-| 1 | Eglu Cube (Omlet) | 4-6 poules | [PRIX]€ |
-| 2 | Eglu Go UP (Omlet) | 2-3 poules, débutants | [PRIX]€ |
-| 3 | Eglu Go (Omlet) | 2-3 poules, budget serré | [PRIX]€ |
+| 1 | Eglu Cube (Omlet) | 4-6 poules | 700–900€ |
+| 2 | Eglu Go UP (Omlet) | 2-3 poules, débutants | 400–600€ |
+| 3 | Eglu Go (Omlet) | 2-3 poules, budget serré | 300–500€ |
 
 ---
 
@@ -203,9 +207,9 @@ Légende : Le Walk-In Run Omlet — pour les élevages de plus de 6 poules
 
 | Poulailler | Capacité réelle | Nettoyage | Prédateurs | Isolation | Durée de vie | Prix |
 |-----------|----------------|-----------|------------|-----------|-------------|------|
-| Eglu Cube | 4-6 | ★★★★★ | ★★★★★ | ★★★★★ | 20+ ans | [Prix] |
-| Eglu Go UP | 2-3 | ★★★★★ | ★★★★★ | ★★★★ | 15+ ans | [Prix] |
-| Eglu Go | 2-3 | ★★★★★ | ★★★★ | ★★★★ | 15+ ans | [Prix] |
+| Eglu Cube | 4-6 | ★★★★★ | ★★★★★ | ★★★★★ | 20+ ans | 700-900€ |
+| Eglu Go UP | 2-3 | ★★★★★ | ★★★★★ | ★★★★ | 15+ ans | 400-600€ |
+| Eglu Go | 2-3 | ★★★★★ | ★★★★ | ★★★★ | 15+ ans | 300-500€ |
 | Kerbl bois | 3-4 | ★★★ | ★★★ | ★★ | 5-8 ans | 150-250€ |
 | Feandrea | 2-3 | ★★½ | ★★★ | ★★ | 4-6 ans | 100-180€ |
 | Générique Amazon | 1-2 | ★★ | ★★ | ★ | 2-4 ans | 60-130€ |
