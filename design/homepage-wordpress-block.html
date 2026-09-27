@@ -1,0 +1,615 @@
+<!-- ============================================================
+  BLOC HTML PERSONNALISÉ — Page d'accueil Mes Poules au Jardin
+  Instructions :
+  1. Pages → Accueil → Supprimer tous les blocs existants
+  2. Ajouter un bloc "HTML personnalisé"
+  3. Coller tout ce code
+  4. Remplacer [X]K par votre nombre d'abonnés TikTok
+  5. Remplacer les href="#" par vos vraies URLs si nécessaire
+  6. Publier
+============================================================ -->
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* Toutes les règles sont scoped sous #mpaj pour éviter les conflits Kadence */
+
+#mpaj {
+  --forest:    #2C5F4A;
+  --fern:      #4A8C6F;
+  --mint:      #A8D5BA;
+  --terra:     #D4724A;
+  --honey:     #F0B860;
+  --cream:     #FAF6EF;
+  --parchment: #F0E8D8;
+  --earth:     #2A1F16;
+  --bark:      #7A6250;
+  --fog:       #E8E2D8;
+  --serif:     'Cormorant Garamond', Georgia, serif;
+  --sans:      'Nunito', sans-serif;
+  font-family: var(--sans);
+  color: var(--earth);
+  overflow-x: hidden;
+}
+
+/* Reset ciblé */
+#mpaj *, #mpaj *::before, #mpaj *::after { box-sizing: border-box; }
+#mpaj a { text-decoration: none; }
+#mpaj ul { list-style: none; padding: 0; margin: 0; }
+#mpaj p { margin: 0; }
+#mpaj h1, #mpaj h2, #mpaj h3 { margin: 0; }
+
+/* ── ANIMATIONS ── */
+@keyframes mpaj-fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes mpaj-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes mpaj-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50%       { transform: rotate(3deg); }
+}
+
+#mpaj .r  { animation: mpaj-fadeUp 0.7s ease both; }
+#mpaj .r1 { animation-delay: 0.05s; }
+#mpaj .r2 { animation-delay: 0.18s; }
+#mpaj .r3 { animation-delay: 0.32s; }
+#mpaj .r4 { animation-delay: 0.46s; }
+#mpaj .r5 { animation-delay: 0.60s; }
+
+/* ── HERO ── */
+#mpaj .hero {
+  background: var(--cream);
+  padding: 56px 0 72px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  overflow: hidden;
+}
+#mpaj .hero-bot-tl {
+  position: absolute;
+  top: 0; left: -30px;
+  width: 220px; opacity: 0.15;
+  animation: mpaj-sway 7s ease-in-out infinite;
+  transform-origin: bottom center;
+  pointer-events: none;
+}
+#mpaj .hero-bot-br {
+  position: absolute;
+  bottom: 0; right: -20px;
+  width: 180px; opacity: 0.12;
+  animation: mpaj-sway 9s ease-in-out infinite reverse;
+  transform-origin: bottom center;
+  pointer-events: none;
+}
+#mpaj .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--fern);
+  margin-bottom: 18px;
+}
+#mpaj .hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 22px; height: 1.5px;
+  background: var(--fern);
+}
+#mpaj .hero-title {
+  font-family: var(--serif);
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 300;
+  color: var(--earth);
+  line-height: 1.08;
+  margin-bottom: 22px;
+  letter-spacing: -0.5px;
+}
+#mpaj .hero-title em  { font-style: italic; color: var(--forest); font-weight: 400; }
+#mpaj .hero-title strong { font-weight: 700; color: var(--forest); }
+#mpaj .hero-desc {
+  font-size: 17px;
+  color: var(--bark);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 440px;
+}
+#mpaj .hero-desc b { color: var(--earth); font-weight: 700; }
+#mpaj .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+#mpaj .btn-terra {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--terra); color: #fff;
+  padding: 14px 28px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  box-shadow: 0 4px 20px rgba(212,114,74,0.35);
+  transition: transform .2s, box-shadow .2s;
+}
+#mpaj .btn-terra:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,114,74,0.45); }
+
+#mpaj .btn-forest-o {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; color: var(--forest);
+  padding: 14px 28px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  border: 2px solid var(--forest);
+  transition: background .2s, color .2s;
+}
+#mpaj .btn-forest-o:hover { background: var(--forest); color: #fff; }
+
+/* Hero visual */
+#mpaj .hero-right { position: relative; }
+#mpaj .hero-img-wrap {
+  border-radius: 24px; overflow: hidden;
+  box-shadow: 0 28px 72px rgba(44,95,74,0.2);
+  animation: mpaj-float 6s ease-in-out infinite;
+}
+#mpaj .hero-img-wrap img {
+  width: 100%; height: 460px;
+  object-fit: cover; display: block;
+}
+#mpaj .hero-card-name {
+  position: absolute; bottom: 24px; left: 24px;
+  background: rgba(250,246,239,0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 14px; padding: 14px 18px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+}
+#mpaj .hero-card-name .name {
+  font-family: var(--serif);
+  font-size: 18px; font-weight: 700; color: var(--forest);
+  margin-bottom: 2px;
+}
+#mpaj .hero-card-name .sub { font-size: 12px; color: var(--bark); }
+#mpaj .hero-stat {
+  position: absolute; top: 28px; right: -20px;
+  background: var(--forest); color: #fff;
+  border-radius: 16px; padding: 18px 22px;
+  text-align: center;
+  box-shadow: 0 12px 36px rgba(44,95,74,0.35);
+}
+#mpaj .hero-stat .num {
+  font-family: var(--serif);
+  font-size: 34px; font-weight: 700; color: var(--honey);
+  line-height: 1; margin-bottom: 4px;
+}
+#mpaj .hero-stat .lbl { font-size: 11px; color: rgba(255,255,255,0.65); letter-spacing: 1px; }
+
+/* ── TRUST STRIP ── */
+#mpaj .trust {
+  background: var(--parchment);
+  border-top: 1px solid var(--fog);
+  border-bottom: 1px solid var(--fog);
+  padding: 18px 0;
+}
+#mpaj .trust-row {
+  display: flex; align-items: center;
+  justify-content: center;
+  gap: 40px; flex-wrap: wrap;
+}
+#mpaj .trust-item {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 13px; color: var(--bark); font-weight: 600;
+}
+#mpaj .trust-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--mint); flex-shrink: 0;
+}
+
+/* ── SECTION HEADER ── */
+#mpaj .sec-head {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 14px;
+  border-bottom: 1.5px solid var(--fog);
+}
+#mpaj .sec-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--fern); margin-bottom: 5px;
+}
+#mpaj .sec-title {
+  font-family: var(--serif);
+  font-size: 32px; font-weight: 600; color: var(--earth);
+}
+#mpaj .sec-more {
+  font-size: 13px; font-weight: 700; color: var(--forest);
+  border-bottom: 1px solid var(--mint); padding-bottom: 2px;
+  white-space: nowrap; transition: color .2s, border-color .2s;
+}
+#mpaj .sec-more:hover { color: var(--terra); border-color: var(--terra); }
+
+/* ── ARTICLES ── */
+#mpaj .articles { padding: 72px 0; }
+#mpaj .articles-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 18px;
+}
+#mpaj .card-big {
+  grid-row: span 2;
+  background: #fff; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(42,31,22,0.07);
+  display: flex; flex-direction: column;
+  transition: transform .3s, box-shadow .3s;
+  color: inherit;
+}
+#mpaj .card-big:hover { transform: translateY(-4px); box-shadow: 0 16px 44px rgba(42,31,22,0.13); }
+#mpaj .card-big .cimg { height: 280px; overflow: hidden; }
+#mpaj .card-big .cimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+#mpaj .card-big:hover .cimg img { transform: scale(1.04); }
+#mpaj .card-big .cbody { padding: 26px 30px 30px; flex: 1; }
+
+#mpaj .card-sm {
+  background: #fff; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(42,31,22,0.07);
+  display: flex;
+  transition: transform .3s, box-shadow .3s;
+  color: inherit;
+}
+#mpaj .card-sm:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(42,31,22,0.12); }
+#mpaj .card-sm .cimg { width: 130px; flex-shrink: 0; overflow: hidden; }
+#mpaj .card-sm .cimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+#mpaj .card-sm:hover .cimg img { transform: scale(1.06); }
+#mpaj .card-sm .cbody { padding: 18px 20px; display: flex; flex-direction: column; justify-content: center; }
+
+#mpaj .cat {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--fern); margin-bottom: 7px;
+}
+#mpaj .ctitle {
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 700;
+  color: var(--earth); line-height: 1.25; margin-bottom: 10px;
+}
+#mpaj .card-sm .ctitle { font-size: 15px; }
+#mpaj .cexcerpt { font-size: 14px; color: var(--bark); line-height: 1.65; margin-bottom: 14px; }
+#mpaj .cmeta { font-size: 12px; color: var(--bark); display: flex; gap: 10px; }
+
+/* ── ABOUT ── */
+#mpaj .about {
+  background: var(--forest);
+  padding: 80px 0;
+  position: relative; overflow: hidden;
+}
+#mpaj .about-ghost {
+  position: absolute; top: -10px; right: -10px;
+  font-family: var(--serif);
+  font-size: 180px; font-weight: 700;
+  color: rgba(255,255,255,0.04);
+  line-height: 1; pointer-events: none; user-select: none;
+}
+#mpaj .about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
+  position: relative; z-index: 1;
+}
+#mpaj .about-lbl {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--mint); margin-bottom: 18px;
+}
+#mpaj .about-quote {
+  font-family: var(--serif);
+  font-size: 36px; font-weight: 300; font-style: italic;
+  color: #fff; line-height: 1.25; margin-bottom: 24px;
+}
+#mpaj .about-quote strong { font-style: normal; font-weight: 700; color: var(--honey); }
+#mpaj .about-text { font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.8; margin-bottom: 28px; }
+#mpaj .btn-ghost-w {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.1); color: #fff;
+  padding: 12px 24px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  border: 1px solid rgba(255,255,255,0.18);
+  transition: background .2s;
+}
+#mpaj .btn-ghost-w:hover { background: rgba(255,255,255,0.18); }
+#mpaj .about-photo { border-radius: 20px; overflow: hidden; position: relative; }
+#mpaj .about-photo img { width: 100%; height: 420px; object-fit: cover; display: block; box-shadow: 0 24px 60px rgba(0,0,0,0.3); border-radius: 20px; }
+#mpaj .tiktok-pill {
+  position: absolute; bottom: -16px; right: -16px;
+  background: #000; color: #fff;
+  border-radius: 14px; padding: 14px 18px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.4);
+}
+#mpaj .tiktok-pill .tfol { font-family: var(--serif); font-size: 22px; font-weight: 700; line-height: 1; }
+#mpaj .tiktok-pill .tlbl { font-size: 11px; color: rgba(255,255,255,0.55); }
+
+/* ── PRODUITS ── */
+#mpaj .products { padding: 72px 0; }
+#mpaj .prod-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+#mpaj .prod-card {
+  background: #fff; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(42,31,22,0.07);
+  display: flex; flex-direction: column;
+  transition: transform .3s, box-shadow .3s;
+}
+#mpaj .prod-card:hover { transform: translateY(-5px); box-shadow: 0 18px 50px rgba(42,31,22,0.14); }
+#mpaj .prod-img { height: 195px; overflow: hidden; background: var(--parchment); }
+#mpaj .prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+#mpaj .prod-card:hover .prod-img img { transform: scale(1.06); }
+#mpaj .prod-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+#mpaj .prod-tag {
+  display: inline-block;
+  background: rgba(44,95,74,0.08); color: var(--forest);
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 50px;
+  margin-bottom: 11px; align-self: flex-start;
+}
+#mpaj .prod-name { font-family: var(--serif); font-size: 21px; font-weight: 700; color: var(--earth); margin-bottom: 8px; }
+#mpaj .prod-desc { font-size: 14px; color: var(--bark); line-height: 1.65; margin-bottom: 18px; flex: 1; }
+#mpaj .prod-foot { display: flex; align-items: center; justify-content: space-between; }
+#mpaj .prod-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--terra); color: #fff;
+  padding: 10px 20px; border-radius: 50px;
+  font-size: 13px; font-weight: 700; font-family: var(--sans);
+  transition: transform .2s, box-shadow .2s;
+}
+#mpaj .prod-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(212,114,74,0.4); }
+#mpaj .prod-aff { font-size: 11px; color: var(--bark); font-style: italic; }
+
+/* ── NEWSLETTER ── */
+#mpaj .nl {
+  background: linear-gradient(135deg, var(--parchment) 0%, var(--cream) 100%);
+  border-top: 1px solid var(--fog);
+  border-bottom: 1px solid var(--fog);
+  padding: 72px 0; text-align: center;
+}
+#mpaj .nl-inner { max-width: 560px; margin: 0 auto; }
+#mpaj .nl-emoji { font-size: 38px; display: block; margin-bottom: 18px; }
+#mpaj .nl-title { font-family: var(--serif); font-size: 36px; font-weight: 600; color: var(--forest); line-height: 1.15; margin-bottom: 12px; }
+#mpaj .nl-sub { font-size: 16px; color: var(--bark); line-height: 1.7; margin-bottom: 28px; }
+#mpaj .nl-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto 14px; }
+#mpaj .nl-input {
+  flex: 1; padding: 13px 20px; border: 1.5px solid var(--fog);
+  border-radius: 50px; font-family: var(--sans); font-size: 14px;
+  background: #fff; color: var(--earth); outline: none;
+  transition: border-color .2s;
+}
+#mpaj .nl-input:focus { border-color: var(--forest); }
+#mpaj .nl-input::placeholder { color: var(--bark); opacity: 0.55; }
+#mpaj .nl-btn {
+  background: var(--forest); color: #fff; border: none;
+  padding: 13px 22px; border-radius: 50px;
+  font-family: var(--sans); font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: background .2s; white-space: nowrap;
+}
+#mpaj .nl-btn:hover { background: var(--fern); }
+#mpaj .nl-fine { font-size: 12px; color: var(--bark); opacity: 0.65; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  #mpaj .hero { grid-template-columns: 1fr; }
+  #mpaj .hero-right { display: none; }
+  #mpaj .articles-grid { grid-template-columns: 1fr; }
+  #mpaj .card-big { grid-row: span 1; }
+  #mpaj .card-sm { flex-direction: column; }
+  #mpaj .card-sm .cimg { width: 100%; height: 170px; }
+  #mpaj .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  #mpaj .prod-grid { grid-template-columns: 1fr; }
+  #mpaj .nl-form { flex-direction: column; }
+  #mpaj .trust-row { gap: 20px; }
+}
+</style>
+
+<div id="mpaj">
+
+  <!-- ══ HERO ══ -->
+  <div class="hero r r1">
+
+    <!-- Botaniques SVG -->
+    <svg class="hero-bot-tl" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100,280 Q80,200 40,160 Q60,170 80,190 Q60,140 20,100 Q50,120 70,150 Q50,100 30,50 Q65,90 80,130 Q75,80 60,20 Q90,70 90,120 Q95,70 80,10 Q110,60 100,120 Q115,70 110,10 Q130,65 115,120 Q125,75 140,20 Q145,80 120,130 Q140,95 170,60 Q155,110 130,150 Q160,120 185,100 Q165,145 140,165 Q170,155 190,165 Q160,185 130,185 Q150,195 165,210 Q130,205 115,215 Q130,230 140,260 Q115,245 105,260 L100,280Z" fill="#2C5F4A"/>
+    </svg>
+    <svg class="hero-bot-br" viewBox="0 0 180 260" xmlns="http://www.w3.org/2000/svg">
+      <path d="M90,250 Q70,180 30,140 Q55,155 75,175 Q55,125 15,85 Q48,108 65,138 Q48,88 25,38 Q62,80 75,118 Q72,68 55,10 Q88,58 85,108 Q92,58 78,5 Q108,52 95,108 Q115,60 112,5 Q132,58 112,108 Q128,68 158,32 Q142,90 115,128 Q148,96 175,58 Q158,110 128,132 Q160,118 180,128 Q148,150 118,150 L90,250Z" fill="#4A8C6F"/>
+    </svg>
+
+    <!-- Texte gauche -->
+    <div>
+      <p class="hero-eyebrow">Élevage de poules au naturel</p>
+      <h1 class="hero-title r r2">
+        Des poules<br>
+        <em>heureuses</em><br>
+        dans <strong>votre</strong><br>
+        jardin
+      </h1>
+      <p class="hero-desc r r3">
+        Je m'appelle <b>Morgane</b>. J'élève 3 ISA Brown dans mon jardin et je partage tout — les bons coups, les erreurs, et les produits qui changent vraiment la vie.
+      </p>
+      <div class="hero-btns r r4">
+        <a href="/mes-recommandations/" class="btn-terra">Mes recommandations →</a>
+        <a href="/blog/" class="btn-forest-o">Tous les articles</a>
+      </div>
+    </div>
+
+    <!-- Image droite -->
+    <div class="hero-right r r2">
+      <div class="hero-img-wrap">
+        <img src="https://cdn.omlet.com/images/cache/1278/718/your-hens-will-love-the-design-of-the-eglu-go-up-chicken-coop-dc.jpg" alt="Poulailler Eglu Go UP de Morgane" />
+      </div>
+      <div class="hero-card-name">
+        <div class="name">Morgane</div>
+        <div class="sub">3 ISA Brown &middot; Eglu Go UP</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">4000K</div>
+        <div class="lbl">TikTok</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TRUST STRIP ══ -->
+  <div class="trust">
+    <div class="trust-row">
+      <div class="trust-item"><span class="trust-dot"></span>3 ISA Brown au jardin</div>
+      <div class="trust-item"><span class="trust-dot"></span>Testée personnellement</div>
+      <div class="trust-item"><span class="trust-dot"></span>Avis honnêtes, sans filtre</div>
+      <div class="trust-item"><span class="trust-dot"></span>Commissions transparentes</div>
+    </div>
+  </div>
+
+  <!-- ══ ARTICLES ══ -->
+  <div class="articles r r1">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">Le blog</p>
+        <h2 class="sec-title">Derniers articles</h2>
+      </div>
+      <a href="/blog/" class="sec-more">Tout voir →</a>
+    </div>
+    <div class="articles-grid">
+
+      <a href="/avis-poulailler-eglu-go-up/" class="card-big r r2">
+        <div class="cimg">
+          <img src="https://cdn.omlet.com/images/cache/1278/718/eglu-go-up-chicken-coop-perfect-for-any-backyard-dc.jpg" alt="Avis Eglu Go UP" />
+        </div>
+        <div class="cbody">
+          <p class="cat">Avis produit</p>
+          <h3 class="ctitle">Avis poulailler Eglu Go UP : mon test honnête avec 3 poules</h3>
+          <p class="cexcerpt">J'avais un vieux poulailler en bois et 3 ISA Brown. J'ai fini par craquer pour l'Eglu Go UP. Plusieurs mois plus tard, voilà ce que j'en pense vraiment.</p>
+          <div class="cmeta"><span>Juin 2025</span><span>&middot;</span><span>8 min</span></div>
+        </div>
+      </a>
+
+      <a href="/eglu-cube-vs-eglu-go/" class="card-sm r r3">
+        <div class="cimg">
+          <img src="https://cdn.omlet.com/images/cache/1276/718/eglu-cube-large-chicken-coop-new-dc.jpg" alt="Eglu Cube vs Eglu Go" />
+        </div>
+        <div class="cbody">
+          <p class="cat">Comparatif</p>
+          <h3 class="ctitle">Eglu Cube ou Eglu Go : lequel choisir ?</h3>
+          <div class="cmeta" style="margin-top:8px;"><span>Juin 2025</span><span>&middot;</span><span>6 min</span></div>
+        </div>
+      </a>
+
+      <a href="/meilleur-poulailler-jardin/" class="card-sm r r4">
+        <div class="cimg">
+          <img src="https://cdn.omlet.com/images/cache/1276/718/children-can-get-involved-with-chicken-keeping-using-omlets-innovative-chicken-coop-design-dc.jpg" alt="Meilleur poulailler jardin" />
+        </div>
+        <div class="cbody">
+          <p class="cat">Guide d'achat</p>
+          <h3 class="ctitle">Meilleur poulailler jardin 2025 : top 10</h3>
+          <div class="cmeta" style="margin-top:8px;"><span>Juin 2025</span><span>&middot;</span><span>12 min</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ══ ABOUT MORGANE ══ -->
+  <div class="about">
+    <div class="about-ghost">Qui Suis-Je</div>
+    <div class="about-grid r">
+      <div class="r r1">
+        <p class="about-lbl">Qui suis-je ?</p>
+        <blockquote class="about-quote">
+          "Je voulais juste <strong>des œufs frais</strong> le matin.<br>Je suis devenue éleveuse."
+        </blockquote>
+        <p class="about-text">J'ai commencé avec 3 ISA Brown et aucune idée de ce que je faisais. Aujourd'hui je partage tout sur TikTok — les galères, les découvertes, et les produits qui ont vraiment changé mon quotidien avec mes poules.</p>
+        <a href="/a-propos/" class="btn-ghost-w">Mon histoire →</a>
+      </div>
+      <div class="r r2">
+        <div class="about-photo">
+          <img src="https://www.mespoulesaujardin.fr/wp-content/uploads/2026/06/img-momo-1.png" alt="Morgane avec ses poules" />
+          <div class="tiktok-pill">
+            <span style="font-size:22px;">♪</span>
+            <div>
+              <div class="tfol">4000K</div>
+              <div class="tlbl">@mespoulesaujardin</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PRODUITS FAVORIS ══ -->
+  <div class="products r r1">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">Affiliée Omlet</p>
+        <h2 class="sec-title">Mes produits favoris</h2>
+      </div>
+      <a href="/mes-recommandations/" class="sec-more">Tout voir →</a>
+    </div>
+    <div class="prod-grid">
+
+      <div class="prod-card r r2">
+        <div class="prod-img">
+          <img src="https://cdn.omlet.com/images/cache/1278/718/your-hens-will-love-the-design-of-the-eglu-go-up-chicken-coop-dc.jpg" alt="Eglu Go UP" />
+        </div>
+        <div class="prod-body">
+          <span class="prod-tag">Mon poulailler</span>
+          <h3 class="prod-name">Eglu Go UP</h3>
+          <p class="prod-desc">Léger, nettoyage en 10 min, résistant aux renards. Je l'utilise avec mes 3 ISA Brown depuis plusieurs mois.</p>
+          <div class="prod-foot">
+            <a href="https://www.omlet.fr/shop/elevage_des_poules/poulailler-en-hauteur-eglu-go-up/?aid=LQZZRCDI" rel="sponsored nofollow" target="_blank" class="prod-btn">Voir sur Omlet →</a>
+            <span class="prod-aff">Lien affilié</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card r r3">
+        <div class="prod-img">
+          <img src="https://cdn.omlet.com/images/cache/1276/718/eglu-cube-large-chicken-coop-new-dc.jpg" alt="Eglu Cube" />
+        </div>
+        <div class="prod-body">
+          <span class="prod-tag">Pour 4-6 poules</span>
+          <h3 class="prod-name">Eglu Cube</h3>
+          <p class="prod-desc">Le modèle premium. Isolation supérieure, plus grand, idéal quand le troupeau grandit.</p>
+          <div class="prod-foot">
+            <a href="https://www.omlet.fr/shop/elevage_des_poules/grand-poulailler-avec-enclos-eglu-cube/?aid=LQZZRCDI" rel="sponsored nofollow" target="_blank" class="prod-btn">Voir sur Omlet →</a>
+            <span class="prod-aff">Lien affilié</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card r r4">
+        <div class="prod-img">
+          <img src="https://cdn.omlet.com/images/cache/1276/718/build-a-customizable-haven-for-your-flock-by-adding-a-walk-in-chicken-run-dc.jpg" alt="Walk-In Run" />
+        </div>
+        <div class="prod-body">
+          <span class="prod-tag">Enclos</span>
+          <h3 class="prod-name">Walk-In Run</h3>
+          <p class="prod-desc">Grand enclos modulaire et extensible. Solide, sécurisé, pour que les poules aient vraiment de l'espace.</p>
+          <div class="prod-foot">
+            <a href="https://www.omlet.fr/shop/elevage_des_poules/grand_enclos_pour_poules/?aid=LQZZRCDI" rel="sponsored nofollow" target="_blank" class="prod-btn">Voir sur Omlet →</a>
+            <span class="prod-aff">Lien affilié</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ NEWSLETTER ══ -->
+  <div class="nl">
+    <div class="nl-inner r r1">
+      <span class="nl-emoji">🐔</span>
+      <h2 class="nl-title">Mes conseils,<br>chaque semaine</h2>
+      <p class="nl-sub">Astuces d'élevage, nouveaux articles et bons plans Omlet — directement dans votre boîte mail.</p>
+      <!-- Remplacer le formulaire ci-dessous par votre code Brevo -->
+      <div class="nl-form">
+        <input type="email" class="nl-input" placeholder="votre@email.fr" />
+        <button class="nl-btn">S'inscrire</button>
+      </div>
+      <p class="nl-fine">Pas de spam. Désinscription en 1 clic.</p>
+    </div>
+  </div>
+
+</div><!-- /#mpaj -->

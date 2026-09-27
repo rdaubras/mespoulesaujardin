@@ -1,0 +1,406 @@
+<!-- ============================================================
+  BLOC HTML — Page À propos de Morgane
+  Pages → À propos → HTML personnalisé → coller
+============================================================ -->
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+#mabo {
+  --forest:    #2C5F4A;
+  --fern:      #4A8C6F;
+  --mint:      #A8D5BA;
+  --terra:     #D4724A;
+  --honey:     #F0B860;
+  --cream:     #FAF6EF;
+  --parchment: #F0E8D8;
+  --earth:     #2A1F16;
+  --bark:      #7A6250;
+  --fog:       #E8E2D8;
+  --serif:     'Cormorant Garamond', Georgia, serif;
+  --sans:      'Nunito', sans-serif;
+  font-family: var(--sans);
+  color: var(--earth);
+}
+#mabo *, #mabo *::before, #mabo *::after { box-sizing: border-box; }
+#mabo a { text-decoration: none; }
+#mabo p { margin: 0; }
+#mabo h1, #mabo h2, #mabo h3 { margin: 0; }
+
+@keyframes mabo-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#mabo .r  { animation: mabo-up 0.65s ease both; }
+#mabo .r1 { animation-delay: 0.05s; }
+#mabo .r2 { animation-delay: 0.18s; }
+#mabo .r3 { animation-delay: 0.32s; }
+#mabo .r4 { animation-delay: 0.46s; }
+
+/* ── HERO ── */
+#mabo .hero {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+  padding: 48px 0 64px;
+}
+#mabo .hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--fern); margin-bottom: 18px;
+}
+#mabo .hero-eyebrow::before {
+  content: ''; display: block;
+  width: 22px; height: 1.5px; background: var(--fern);
+}
+#mabo .hero-title {
+  font-family: var(--serif);
+  font-size: clamp(40px, 4.5vw, 62px);
+  font-weight: 300; line-height: 1.1;
+  color: var(--earth); margin-bottom: 20px; letter-spacing: -0.3px;
+}
+#mabo .hero-title em { font-style: italic; color: var(--forest); }
+#mabo .hero-title strong { font-weight: 700; color: var(--forest); }
+#mabo .hero-intro {
+  font-size: 17px; color: var(--bark);
+  line-height: 1.8; margin-bottom: 32px;
+}
+#mabo .hero-intro b { color: var(--earth); font-weight: 700; }
+#mabo .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+#mabo .btn-terra {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--terra); color: #fff;
+  padding: 13px 26px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  box-shadow: 0 4px 18px rgba(212,114,74,0.35);
+  transition: transform .2s, box-shadow .2s;
+}
+#mabo .btn-terra:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(212,114,74,0.45); }
+#mabo .btn-outline {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; color: var(--forest);
+  padding: 13px 24px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  border: 2px solid var(--forest);
+  transition: background .2s, color .2s;
+}
+#mabo .btn-outline:hover { background: var(--forest); color: #fff; }
+
+/* Photo card */
+#mabo .photo-card {
+  position: relative;
+  border-radius: 24px; overflow: hidden;
+  box-shadow: 0 28px 72px rgba(44,95,74,0.18);
+}
+#mabo .photo-card img {
+  width: 100%; height: 520px;
+  object-fit: cover; display: block;
+}
+#mabo .photo-pill {
+  position: absolute; bottom: 24px; left: 24px; right: 24px;
+  background: rgba(250,246,239,0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 14px; padding: 16px 20px;
+  display: flex; align-items: center; gap: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+}
+#mabo .pill-icon { font-size: 28px; }
+#mabo .pill-text .name {
+  font-family: var(--serif); font-size: 18px;
+  font-weight: 700; color: var(--forest); margin-bottom: 2px;
+}
+#mabo .pill-text .sub { font-size: 12px; color: var(--bark); }
+
+/* ── STORY SECTION ── */
+#mabo .story {
+  background: var(--parchment);
+  border-radius: 20px;
+  padding: 52px;
+  margin: 0 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+#mabo .story-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--fern); margin-bottom: 16px;
+}
+#mabo .story-title {
+  font-family: var(--serif); font-size: 32px;
+  font-weight: 600; color: var(--earth);
+  line-height: 1.2; margin-bottom: 20px;
+}
+#mabo .story-text {
+  font-size: 15px; color: var(--bark);
+  line-height: 1.85;
+}
+#mabo .story-text + .story-text { margin-top: 16px; }
+#mabo .story-text b { color: var(--earth); font-weight: 700; }
+
+/* Timeline */
+#mabo .timeline { display: flex; flex-direction: column; gap: 0; }
+#mabo .tl-item {
+  display: flex; gap: 20px;
+  padding-bottom: 28px;
+  position: relative;
+}
+#mabo .tl-item:last-child { padding-bottom: 0; }
+#mabo .tl-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 19px; top: 40px; bottom: 0;
+  width: 2px; background: var(--fog);
+}
+#mabo .tl-dot {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--forest); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0; margin-top: 2px;
+}
+#mabo .tl-content {}
+#mabo .tl-date {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--fern); margin-bottom: 4px;
+}
+#mabo .tl-text {
+  font-size: 14px; color: var(--bark); line-height: 1.65;
+}
+#mabo .tl-text b { color: var(--earth); font-weight: 700; }
+
+/* ── VALEURS ── */
+#mabo .values {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin: 0 0 40px;
+}
+#mabo .val-card {
+  background: #fff; border-radius: 16px; padding: 28px 24px;
+  box-shadow: 0 4px 20px rgba(42,31,22,0.07);
+  border-top: 3px solid var(--forest);
+}
+#mabo .val-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+#mabo .val-title {
+  font-family: var(--serif); font-size: 20px; font-weight: 700;
+  color: var(--earth); margin-bottom: 8px;
+}
+#mabo .val-text { font-size: 14px; color: var(--bark); line-height: 1.65; }
+
+/* ── TIKTOK SECTION ── */
+#mabo .tiktok-section {
+  background: var(--earth);
+  border-radius: 20px; padding: 48px;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 40px; align-items: center;
+  margin-bottom: 40px;
+}
+#mabo .tk-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  margin-bottom: 12px;
+}
+#mabo .tk-title {
+  font-family: var(--serif); font-size: 30px; font-weight: 600;
+  color: #fff; line-height: 1.2; margin-bottom: 14px;
+}
+#mabo .tk-text { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+#mabo .tk-card {
+  background: #1a1a2e; border-radius: 16px; padding: 28px 32px;
+  text-align: center; min-width: 180px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+#mabo .tk-num {
+  font-family: var(--serif); font-size: 48px; font-weight: 700;
+  color: var(--honey); line-height: 1; margin-bottom: 6px;
+}
+#mabo .tk-sub { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── CTA FINAL ── */
+#mabo .cta-final {
+  background: linear-gradient(140deg, var(--forest) 0%, var(--fern) 100%);
+  border-radius: 20px; padding: 52px;
+  text-align: center;
+}
+#mabo .cf-title {
+  font-family: var(--serif); font-size: 36px; font-weight: 300;
+  color: #fff; line-height: 1.2; margin-bottom: 14px;
+}
+#mabo .cf-title em { font-style: italic; }
+#mabo .cf-title strong { font-weight: 700; color: var(--honey); }
+#mabo .cf-text {
+  font-size: 16px; color: rgba(255,255,255,0.72);
+  line-height: 1.7; margin-bottom: 32px;
+  max-width: 520px; margin-left: auto; margin-right: auto;
+}
+#mabo .cf-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+#mabo .btn-honey {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--honey); color: var(--earth);
+  padding: 14px 28px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  transition: transform .2s;
+}
+#mabo .btn-honey:hover { transform: translateY(-2px); }
+#mabo .btn-ghost {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.12); color: #fff;
+  padding: 14px 26px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: background .2s;
+}
+#mabo .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+
+/* Responsive */
+@media (max-width: 860px) {
+  #mabo .hero { grid-template-columns: 1fr; }
+  #mabo .photo-card { display: none; }
+  #mabo .story { grid-template-columns: 1fr; gap: 36px; padding: 32px; }
+  #mabo .values { grid-template-columns: 1fr; }
+  #mabo .tiktok-section { grid-template-columns: 1fr; }
+  #mabo .cta-final { padding: 36px 24px; }
+}
+</style>
+
+<div id="mabo">
+
+  <!-- ══ HERO ══ -->
+  <div class="hero r">
+    <div class="r r1">
+      <p class="hero-eyebrow">À propos</p>
+      <h1 class="hero-title">
+        Bonjour,<br>
+        je suis <em>Morgane</em> —<br>
+        <strong>éleveuse amateur</strong><br>
+        et créatrice TikTok
+      </h1>
+      <p class="hero-intro">
+        J'ai commencé avec <b>3 ISA Brown, un jardin ordinaire et aucune expérience</b>. Aujourd'hui je partage tout ce que j'apprends — les galères, les découvertes, et les produits qui ont vraiment changé mon quotidien avec mes poules.
+      </p>
+      <div class="hero-btns">
+        <a href="/mes-recommandations/" class="btn-terra">Mes recommandations →</a>
+        <a href="/blog/" class="btn-outline">Lire le blog</a>
+      </div>
+    </div>
+
+    <div class="photo-card r r2">
+      <!-- Remplacer par votre propre photo quand disponible -->
+      <img src="https://www.mespoulesaujardin.fr/wp-content/uploads/2026/06/img-momo-1.png" alt="Morgane avec ses poules ISA Brown" />
+      <div class="photo-pill">
+        <span class="pill-icon">🐔</span>
+        <div class="pill-text">
+          <div class="name">Morgane</div>
+          <div class="sub">3 ISA Brown &middot; Eglu Go UP &middot; Jardin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HISTOIRE ══ -->
+  <div class="story r r1">
+    <div>
+      <p class="story-label">Mon histoire</p>
+      <h2 class="story-title">Comment j'en suis arrivée à élever des poules</h2>
+      <p class="story-text">
+        Ça a commencé avec une envie toute simple : <b>des œufs frais le matin</b>, ramassés dans mon propre jardin. Pas de supermarché, pas d'emballage plastique.
+      </p>
+      <p class="story-text">
+        Ce que je n'avais pas prévu, c'est à quel point ça allait changer mon rapport au jardin. Et à quel point j'allais passer du temps à <b>chercher des informations fiables</b> sur l'élevage de poules en France — et souvent ne pas en trouver.
+      </p>
+      <p class="story-text">
+        Alors j'ai commencé à filmer mes poules sur TikTok. Par jeu. Et les gens ont commencé à poser des questions. Beaucoup de questions. Ce blog est la suite logique : un endroit où mettre les réponses longues, les avis détaillés et les guides pratiques.
+      </p>
+    </div>
+
+    <div>
+      <p class="story-label">La timeline</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot">🌱</div>
+          <div class="tl-content">
+            <p class="tl-date">Les débuts</p>
+            <p class="tl-text">Premières recherches sur l'élevage de poules. <b>Beaucoup d'informations contradictoires.</b> Un vieux poulailler bois qui prenait 45 min à nettoyer.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">🐣</div>
+          <div class="tl-content">
+            <p class="tl-date">Mes 3 ISA Brown</p>
+            <p class="tl-text">Arrivée des 3 premières poules. <b>ISA Brown</b> — race pondeuse par excellence. Première ponte au bout de 3 semaines.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">📱</div>
+          <div class="tl-content">
+            <p class="tl-date">TikTok</p>
+            <p class="tl-text">Premiers vidéos publiés par curiosité. <b>La communauté grandit</b> plus vite que prévu. Les questions fusent.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">🏡</div>
+          <div class="tl-content">
+            <p class="tl-date">L'Eglu Go UP</p>
+            <p class="tl-text">Changement de poulailler après un incident de chaleur. <b>Eglu Go UP d'Omlet</b> — la décision que je ne regrette pas une seule fois.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">✍️</div>
+          <div class="tl-content">
+            <p class="tl-date">Ce blog</p>
+            <p class="tl-text">Lancement de Mes Poules au Jardin pour mettre par écrit tout ce que j'apprends. <b>Avis honnêtes, guides pratiques, zéro remplissage.</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ VALEURS ══ -->
+  <div class="values r">
+    <div class="val-card r r1">
+      <span class="val-icon">🔍</span>
+      <h3 class="val-title">Honnêteté avant tout</h3>
+      <p class="val-text">Je ne recommande que ce que j'utilise vraiment. Si un produit ne m'a pas convaincu, je le dis. Un avis sans critique n'est pas un avis, c'est de la pub.</p>
+    </div>
+    <div class="val-card r r2">
+      <span class="val-icon">🌿</span>
+      <h3 class="val-title">Simplicité du quotidien</h3>
+      <p class="val-text">Élever des poules doit rester simple et agréable. Je cherche les solutions qui font gagner du temps — pas celles qui compliquent tout.</p>
+    </div>
+    <div class="val-card r r3">
+      <span class="val-icon">💬</span>
+      <h3 class="val-title">Transparence totale</h3>
+      <p class="val-text">Ce blog contient des liens affiliés Omlet. Je le dis clairement partout. Ma commission ne change pas votre prix — et ça m'aide à maintenir ce contenu gratuit.</p>
+    </div>
+  </div>
+
+  <!-- ══ TIKTOK ══ -->
+  <div class="tiktok-section r">
+    <div>
+      <p class="tk-label">Sur TikTok</p>
+      <h2 class="tk-title">La vie avec 3 poules,<br>au quotidien</h2>
+      <p class="tk-text">
+        Je filme mes ISA Brown, les moments drôles, les galères, les questions de la communauté. TikTok c'est le côté vivant — ce blog c'est le côté utile. Les deux se complètent.
+      </p>
+    </div>
+    <div class="tk-card">
+      <div class="tk-num">4000K</div>
+      <div class="tk-sub">@mespoulesaujardin<br>TikTok</div>
+    </div>
+  </div>
+
+  <!-- ══ CTA FINAL ══ -->
+  <div class="cta-final r">
+    <h2 class="cf-title">
+      Une question sur vos poules ?<br>
+      <em>Je réponds à</em> <strong>tout le monde.</strong>
+    </h2>
+    <p class="cf-text">
+      Que ce soit sur TikTok en commentaire, ou via le formulaire de contact — si vous avez une question sur votre situation (nombre de poules, budget, jardin), posez-la. Je ferai de mon mieux pour répondre.
+    </p>
+    <div class="cf-btns">
+      <a href="/mes-recommandations/" class="btn-honey">Mes recommandations →</a>
+      <a href="/contact/" class="btn-ghost">Me contacter</a>
+    </div>
+  </div>
+
+</div><!-- /#mabo -->

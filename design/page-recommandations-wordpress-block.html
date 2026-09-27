@@ -1,0 +1,655 @@
+<!-- ============================================================
+  BLOC HTML — Page Mes Recommandations
+  Pages → Mes Recommandations → HTML personnalisé → coller
+  Remplacer [LIEN-XXX] par vos liens ThirstyAffiliates
+============================================================ -->
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+#mrec {
+  --forest:    #2C5F4A;
+  --fern:      #4A8C6F;
+  --mint:      #A8D5BA;
+  --terra:     #D4724A;
+  --honey:     #F0B860;
+  --cream:     #FAF6EF;
+  --parchment: #F0E8D8;
+  --earth:     #2A1F16;
+  --bark:      #7A6250;
+  --fog:       #E8E2D8;
+  --serif:     'Cormorant Garamond', Georgia, serif;
+  --sans:      'Nunito', sans-serif;
+  font-family: var(--sans);
+  color: var(--earth);
+}
+
+#mrec *, #mrec *::before, #mrec *::after { box-sizing: border-box; }
+#mrec a { text-decoration: none; }
+#mrec p { margin: 0; }
+#mrec h1, #mrec h2, #mrec h3, #mrec h4 { margin: 0; }
+#mrec ul { list-style: none; padding: 0; margin: 0; }
+
+@keyframes mrec-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#mrec .r  { animation: mrec-up 0.65s ease both; }
+#mrec .r1 { animation-delay: 0.05s; }
+#mrec .r2 { animation-delay: 0.15s; }
+#mrec .r3 { animation-delay: 0.25s; }
+#mrec .r4 { animation-delay: 0.35s; }
+
+/* ── INTRO ── */
+#mrec .intro {
+  padding: 56px 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+#mrec .intro-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--fern); margin-bottom: 16px;
+}
+#mrec .intro-eyebrow::before {
+  content: ''; display: block;
+  width: 22px; height: 1.5px; background: var(--fern);
+}
+#mrec .intro-title {
+  font-family: var(--serif);
+  font-size: clamp(38px, 4vw, 56px);
+  font-weight: 300; line-height: 1.1;
+  color: var(--earth); margin-bottom: 18px; letter-spacing: -0.3px;
+}
+#mrec .intro-title em { font-style: italic; color: var(--forest); }
+#mrec .intro-title strong { font-weight: 700; color: var(--forest); }
+#mrec .intro-text {
+  font-size: 16px; color: var(--bark);
+  line-height: 1.8; margin-bottom: 0; max-width: 560px;
+}
+#mrec .intro-text b { color: var(--earth); font-weight: 700; }
+
+/* Disclosure card */
+#mrec .disclosure {
+  background: var(--parchment);
+  border: 1.5px solid var(--fog);
+  border-radius: 16px;
+  padding: 24px;
+  align-self: start;
+  margin-top: 8px;
+}
+#mrec .disc-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+#mrec .disc-title {
+  font-family: var(--serif);
+  font-size: 17px; font-weight: 700;
+  color: var(--earth); margin-bottom: 10px;
+}
+#mrec .disc-text {
+  font-size: 13px; color: var(--bark);
+  line-height: 1.7;
+}
+#mrec .disc-text b { color: var(--forest); font-weight: 700; }
+
+/* ── SECTION HEADER ── */
+#mrec .sec-wrap {
+  padding: 56px 0;
+  border-top: 1.5px solid var(--fog);
+}
+#mrec .sec-head {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+#mrec .sec-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--fern); margin-bottom: 5px;
+}
+#mrec .sec-title {
+  font-family: var(--serif);
+  font-size: 30px; font-weight: 600; color: var(--earth);
+}
+#mrec .sec-count {
+  font-size: 13px; color: var(--bark);
+  font-style: italic;
+}
+
+/* ── BADGE PRODUIT ── */
+#mrec .verdict {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 50px;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+#mrec .verdict-star  { background: var(--honey); color: var(--earth); }
+#mrec .verdict-green { background: rgba(44,95,74,0.1); color: var(--forest); }
+#mrec .verdict-bark  { background: rgba(122,98,80,0.1); color: var(--bark); }
+
+/* ── CARTE PRODUIT PRINCIPALE (horizontale) ── */
+#mrec .prod-main {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 28px rgba(42,31,22,0.09);
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  margin-bottom: 20px;
+  transition: transform .3s, box-shadow .3s;
+}
+#mrec .prod-main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(42,31,22,0.14);
+}
+#mrec .prod-main .pimg {
+  overflow: hidden; position: relative;
+}
+#mrec .prod-main .pimg img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+#mrec .prod-main:hover .pimg img { transform: scale(1.04); }
+
+#mrec .prod-main .pbody {
+  padding: 32px 36px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+#mrec .prod-name {
+  font-family: var(--serif);
+  font-size: 28px; font-weight: 700;
+  color: var(--earth); margin-bottom: 6px;
+}
+#mrec .prod-sub {
+  font-size: 13px; color: var(--fern);
+  font-weight: 600; margin-bottom: 14px;
+  letter-spacing: 0.3px;
+}
+#mrec .prod-desc {
+  font-size: 15px; color: var(--bark);
+  line-height: 1.75; margin-bottom: 20px;
+}
+#mrec .prod-desc b { color: var(--earth); font-weight: 700; }
+
+/* Pros list */
+#mrec .pros { margin-bottom: 24px; }
+#mrec .pros li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--bark); padding: 5px 0;
+  border-bottom: 1px solid var(--fog);
+  line-height: 1.55;
+}
+#mrec .pros li:last-child { border-bottom: none; }
+#mrec .pros-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--mint); flex-shrink: 0; margin-top: 5px;
+}
+#mrec .pros li b { color: var(--earth); font-weight: 700; }
+
+/* Foot de carte */
+#mrec .pfoot {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+#mrec .pfoot-note {
+  font-size: 12px; color: var(--bark);
+  font-style: italic; line-height: 1.5;
+}
+#mrec .pfoot-note b { color: var(--earth); font-style: normal; font-weight: 700; }
+
+#mrec .btn-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--terra); color: #fff;
+  padding: 13px 26px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  box-shadow: 0 4px 18px rgba(212,114,74,0.35);
+  transition: transform .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+#mrec .btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(212,114,74,0.45);
+}
+#mrec .btn-outline-f {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; color: var(--forest);
+  padding: 12px 22px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  border: 2px solid var(--forest);
+  transition: background .2s, color .2s;
+}
+#mrec .btn-outline-f:hover { background: var(--forest); color: #fff; }
+
+/* ── GRILLE PETITES CARTES ── */
+#mrec .grid-sm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+#mrec .card-sm {
+  background: #fff; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(42,31,22,0.07);
+  display: flex; flex-direction: column;
+  transition: transform .3s, box-shadow .3s;
+}
+#mrec .card-sm:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 44px rgba(42,31,22,0.13);
+}
+#mrec .card-sm .simg {
+  height: 180px; overflow: hidden; background: var(--parchment);
+}
+#mrec .card-sm .simg img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s;
+}
+#mrec .card-sm:hover .simg img { transform: scale(1.06); }
+#mrec .card-sm .sbody {
+  padding: 20px 22px; flex: 1; display: flex; flex-direction: column;
+}
+#mrec .card-sm .sname {
+  font-family: var(--serif); font-size: 20px; font-weight: 700;
+  color: var(--earth); margin-bottom: 8px;
+}
+#mrec .card-sm .sdesc {
+  font-size: 13px; color: var(--bark); line-height: 1.65;
+  margin-bottom: 16px; flex: 1;
+}
+#mrec .card-sm .sfoot {
+  display: flex; align-items: center;
+  justify-content: space-between;
+}
+#mrec .btn-sm {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--terra); color: #fff;
+  padding: 9px 18px; border-radius: 50px;
+  font-size: 13px; font-weight: 700; font-family: var(--sans);
+  transition: transform .2s;
+}
+#mrec .btn-sm:hover { transform: translateY(-1px); }
+#mrec .aff-tag {
+  font-size: 11px; color: var(--bark); font-style: italic;
+}
+
+/* ── NOTE MORGANE ── */
+#mrec .morgane-note {
+  background: var(--forest);
+  border-radius: 20px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  margin: 0 0 56px;
+}
+#mrec .mn-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--mint); margin-bottom: 14px;
+}
+#mrec .mn-quote {
+  font-family: var(--serif); font-size: 26px; font-weight: 300;
+  font-style: italic; color: #fff; line-height: 1.4; margin-bottom: 16px;
+}
+#mrec .mn-quote strong { font-style: normal; font-weight: 700; color: var(--honey); }
+#mrec .mn-text { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.75; }
+#mrec .mn-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.12); color: #fff;
+  padding: 12px 24px; border-radius: 50px;
+  font-size: 14px; font-weight: 700; font-family: var(--sans);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: background .2s; white-space: nowrap;
+}
+#mrec .mn-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* ── TABLEAU RÉCAP ── */
+#mrec .recap-table {
+  width: 100%; border-collapse: collapse;
+  margin-bottom: 56px; font-size: 14px;
+}
+#mrec .recap-table th {
+  background: var(--forest); color: #fff;
+  padding: 14px 18px; text-align: left;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+#mrec .recap-table th:first-child { border-radius: 12px 0 0 0; }
+#mrec .recap-table th:last-child  { border-radius: 0 12px 0 0; }
+#mrec .recap-table td {
+  padding: 14px 18px; border-bottom: 1px solid var(--fog);
+  color: var(--bark); vertical-align: middle;
+}
+#mrec .recap-table tr:last-child td { border-bottom: none; }
+#mrec .recap-table tr:hover td { background: rgba(44,95,74,0.03); }
+#mrec .recap-table td:first-child { font-weight: 700; color: var(--earth); }
+#mrec .recap-table td a {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--terra); color: #fff;
+  padding: 7px 16px; border-radius: 50px;
+  font-size: 12px; font-weight: 700; font-family: var(--sans);
+  transition: opacity .2s;
+}
+#mrec .recap-table td a:hover { opacity: 0.85; }
+#mrec .star { color: var(--honey); font-size: 13px; }
+#mrec .badge-me {
+  display: inline-block;
+  background: rgba(44,95,74,0.1); color: var(--forest);
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
+  margin-left: 6px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  #mrec .intro { grid-template-columns: 1fr; }
+  #mrec .prod-main { grid-template-columns: 1fr; }
+  #mrec .prod-main .pimg { height: 240px; }
+  #mrec .prod-main .pbody { padding: 24px; }
+  #mrec .grid-sm { grid-template-columns: 1fr; }
+  #mrec .morgane-note { grid-template-columns: 1fr; }
+}
+</style>
+
+<div id="mrec">
+
+  <!-- ══ INTRO ══ -->
+  <div class="intro r">
+    <div class="r r1">
+      <p class="intro-eyebrow">Affiliée Omlet</p>
+      <h1 class="intro-title">
+        Mes <em>vraies</em><br>
+        <strong>recommandations</strong>
+      </h1>
+      <p class="intro-text">
+        Je ne liste ici que les produits que j'utilise <b>personnellement</b> ou que j'ai soigneusement comparés pour ma communauté TikTok. Pas de remplissage. Si je le recommande, c'est que je le ferais à une amie.
+      </p>
+    </div>
+
+    <div class="disclosure r r2">
+      <span class="disc-icon">💬</span>
+      <h3 class="disc-title">Transparence</h3>
+      <p class="disc-text">
+        Certains liens sur cette page sont des <b>liens d'affiliation Omlet</b>. Si vous achetez via ces liens, je perçois une petite commission — <b>sans surcoût pour vous</b>. Ça m'aide à maintenir ce blog gratuit et à continuer à tester de nouveaux produits.
+      </p>
+    </div>
+  </div>
+
+  <!-- ══ POULAILLERS ══ -->
+  <div class="sec-wrap r">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">Catégorie 01</p>
+        <h2 class="sec-title">Poulaillers</h2>
+      </div>
+      <span class="sec-count">3 modèles testés et comparés</span>
+    </div>
+
+    <!-- Eglu Go UP — MON CHOIX -->
+    <div class="prod-main r r1">
+      <div class="pimg">
+        <img src="https://cdn.omlet.com/images/cache/1278/718/your-hens-will-love-the-design-of-the-eglu-go-up-chicken-coop-dc.jpg" alt="Poulailler Eglu Go UP Omlet" />
+      </div>
+      <div class="pbody">
+        <div>
+          <div class="verdict verdict-star">⭐ Mon choix personnel</div>
+          <h3 class="prod-name">Eglu Go UP</h3>
+          <p class="prod-sub">Omlet · Pour 2 à 3 poules · Surélevé</p>
+          <p class="prod-desc">
+            C'est le poulailler que j'utilise avec <b>mes 3 ISA Brown</b>. La décision que je ne regrette pas une seule fois. Le nettoyage prend 10 minutes, le renard du quartier n'a jamais réussi à entrer, et mes poules ont pondu tout l'hiver sans chauffage.
+          </p>
+          <ul class="pros">
+            <li><span class="pros-dot"></span><span><b>Nettoyage en 10 min</b> — tiroir coulissant, surfaces lisses, aucun recoin</span></li>
+            <li><span class="pros-dot"></span><span><b>Surélevé sur pieds</b> — protection prédateurs, ventilation, espace en dessous</span></li>
+            <li><span class="pros-dot"></span><span><b>Durabilité 15+ ans</b> — plastique recyclable qui ne pourrit pas</span></li>
+            <li><span class="pros-dot"></span><span><b>Enclos extensible</b> — modules Omlet compatibles</span></li>
+          </ul>
+        </div>
+        <div class="pfoot">
+          <div class="pfoot-note">
+            <b>Pour qui :</b> 2 à 3 poules<br>
+            <b>Budget :</b> ~400–550€ avec enclos<br>
+            Lien affilié · commission 5% HT
+          </div>
+          <a href="/recommande/eglu-go-up/" rel="sponsored nofollow" target="_blank" class="btn-cta">Voir le prix sur Omlet →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eglu Cube -->
+    <div class="prod-main r r2">
+      <div class="pimg">
+        <img src="https://cdn.omlet.com/images/cache/1276/718/eglu-cube-large-chicken-coop-new-dc.jpg" alt="Poulailler Eglu Cube Omlet" />
+      </div>
+      <div class="pbody">
+        <div>
+          <div class="verdict verdict-green">🏆 Le premium</div>
+          <h3 class="prod-name">Eglu Cube</h3>
+          <p class="prod-sub">Omlet · Pour 4 à 6 poules · Modèle haut de gamme</p>
+          <p class="prod-desc">
+            Le grand frère du Go UP. Si vous avez <b>4 poules ou plus</b>, c'est le modèle à choisir. Isolation supérieure, dortoir plus spacieux, finitions irréprochables. Le retour de la communauté est unanime : les poules pondent mieux en hiver dedans.
+          </p>
+          <ul class="pros">
+            <li><span class="pros-dot"></span><span><b>Double paroi isolante</b> — même -15°C dehors, confortable dedans</span></li>
+            <li><span class="pros-dot"></span><span><b>Capacité 4–6 poules</b> — vraiment à l'aise, pas entassées</span></li>
+            <li><span class="pros-dot"></span><span><b>Même système de nettoyage</b> — 10 min par semaine</span></li>
+            <li><span class="pros-dot"></span><span><b>Durabilité 20+ ans</b> — plastique épais haute qualité</span></li>
+          </ul>
+        </div>
+        <div class="pfoot">
+          <div class="pfoot-note">
+            <b>Pour qui :</b> 4 à 6 poules<br>
+            <b>Budget :</b> ~700–900€ avec enclos<br>
+            Lien affilié · commission 5% HT
+          </div>
+          <a href="/recommande/eglu-cube/" rel="sponsored nofollow" target="_blank" class="btn-cta">Voir le prix sur Omlet →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eglu Go -->
+    <div class="prod-main r r3">
+      <div class="pimg">
+        <img src="https://cdn.omlet.com/images/cache/1278/718/raised-eglu-go-chicken-coop-suitable-for-any-backyard-keeper-dc.jpg" alt="Poulailler Eglu Go Omlet" />
+      </div>
+      <div class="pbody">
+        <div>
+          <div class="verdict verdict-bark">💡 Pour débuter</div>
+          <h3 class="prod-name">Eglu Go</h3>
+          <p class="prod-sub">Omlet · Pour 2 à 3 poules · Version au sol</p>
+          <p class="prod-desc">
+            La version au sol du Go UP, légèrement moins chère. Si le budget est serré et que vous voulez quand même la qualité Omlet, c'est le bon point d'entrée. Mêmes avantages de nettoyage et de durabilité — sans les pieds surélevés.
+          </p>
+          <ul class="pros">
+            <li><span class="pros-dot"></span><span><b>Prix accessible</b> — l'entrée dans l'univers Omlet</span></li>
+            <li><span class="pros-dot"></span><span><b>Nettoyage rapide</b> — même système tiroir que le Go UP</span></li>
+            <li><span class="pros-dot"></span><span><b>Durabilité 15+ ans</b> — plastique recyclable</span></li>
+          </ul>
+        </div>
+        <div class="pfoot">
+          <div class="pfoot-note">
+            <b>Pour qui :</b> 2 à 3 poules, budget limité<br>
+            <b>Budget :</b> ~300–450€ avec enclos<br>
+            Lien affilié · commission 5% HT
+          </div>
+          <a href="/recommande/eglu-go/" rel="sponsored nofollow" target="_blank" class="btn-cta">Voir le prix sur Omlet →</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /poulaillers -->
+
+  <!-- ══ ENCLOS ══ -->
+  <div class="sec-wrap r">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">Catégorie 02</p>
+        <h2 class="sec-title">Enclos</h2>
+      </div>
+      <span class="sec-count">Modèles extensibles et sécurisés</span>
+    </div>
+
+    <div class="prod-main r r1">
+      <div class="pimg">
+        <img src="https://cdn.omlet.com/images/cache/1276/718/build-a-customizable-haven-for-your-flock-by-adding-a-walk-in-chicken-run-dc.jpg" alt="Walk-In Run Omlet" />
+      </div>
+      <div class="pbody">
+        <div>
+          <div class="verdict verdict-green">🌿 Recommandé</div>
+          <h3 class="prod-name">Walk-In Run</h3>
+          <p class="prod-sub">Omlet · Grand enclos modulaire · Toutes tailles</p>
+          <p class="prod-desc">
+            L'enclos que je recommande si vous avez de l'espace. On peut se tenir debout dedans pour nettoyer et interagir avec les poules. Modulable : vous l'agrandissez selon vos besoins. <b>Compatible avec tous les poulaillers Omlet.</b>
+          </p>
+          <ul class="pros">
+            <li><span class="pros-dot"></span><span><b>Hauteur adulte</b> — nettoyage et accès facile</span></li>
+            <li><span class="pros-dot"></span><span><b>Extensible</b> — achetez petit, agrandissez plus tard</span></li>
+            <li><span class="pros-dot"></span><span><b>Maille soudée solide</b> — résistant aux renards et martres</span></li>
+          </ul>
+        </div>
+        <div class="pfoot">
+          <div class="pfoot-note">
+            <b>Pour qui :</b> Tous les élevages<br>
+            <b>Budget :</b> ~250–600€ selon taille<br>
+            Lien affilié · commission 5% HT
+          </div>
+          <a href="/recommande/walk-in-run/" rel="sponsored nofollow" target="_blank" class="btn-cta">Voir le prix sur Omlet →</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /enclos -->
+
+  <!-- ══ ACCESSOIRES ══ -->
+  <div class="sec-wrap r">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">Catégorie 03</p>
+        <h2 class="sec-title">Accessoires</h2>
+      </div>
+      <span class="sec-count">Pour simplifier le quotidien</span>
+    </div>
+
+    <div class="grid-sm">
+
+      <div class="card-sm r r1">
+        <div class="simg">
+          <img src="https://cdn.omlet.com/images/cache/1278/718/detail-of-automatic-coop-door-for-the-eglu-go-up-dc.jpg" alt="Porte automatique Omlet" />
+        </div>
+        <div class="sbody">
+          <div class="verdict verdict-star" style="margin-bottom:10px;">⭐ Coup de cœur</div>
+          <h3 class="sname">Porte automatique</h3>
+          <p class="sdesc">S'ouvre et se ferme toute seule au lever/coucher du soleil. Plus jamais de course le soir pour fermer le poulailler. Compatible avec tous les Eglu.</p>
+          <div class="sfoot">
+            <a href="/recommande/porte-automatique-omlet/" rel="sponsored nofollow" target="_blank" class="btn-sm">Voir sur Omlet →</a>
+            <span class="aff-tag">Affilié</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-sm r r2">
+        <div class="simg">
+          <img src="https://cdn.omlet.com/images/cache/583/618/pull-out-droppings-tray-makes-cleaning-quick-and-easy-mb.jpg" alt="Accessoires nettoyage Omlet" />
+        </div>
+        <div class="sbody">
+          <div class="verdict verdict-green" style="margin-bottom:10px;">🌿 Pratique</div>
+          <h3 class="sname">Kit de nettoyage</h3>
+          <p class="sdesc">Litière et produits de désinfection compatibles Eglu. Rend le nettoyage hebdomadaire encore plus rapide et maintient le poulailler sain.</p>
+          <div class="sfoot">
+            <a href="/recommande/accessoires-omlet/" rel="sponsored nofollow" target="_blank" class="btn-sm">Voir sur Omlet →</a>
+            <span class="aff-tag">Affilié</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-sm r r3">
+        <div class="simg">
+          <img src="https://cdn.omlet.com/images/cache/583/618/girl-collecting-eggs-from-inside-an-eglu-go-up-chicken-coop-mb.jpg" alt="Accessoires poules Omlet" />
+        </div>
+        <div class="sbody">
+          <div class="verdict verdict-bark" style="margin-bottom:10px;">💡 Utile</div>
+          <h3 class="sname">Accessoires divers</h3>
+          <p class="sdesc">Mangeoires, abreuvoirs, jouets pour poules et couvertures météo. Tous compatibles avec les poulaillers Eglu et testés par la communauté Omlet.</p>
+          <div class="sfoot">
+            <a href="/recommande/accessoires-omlet/" rel="sponsored nofollow" target="_blank" class="btn-sm">Voir sur Omlet →</a>
+            <span class="aff-tag">Affilié</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /accessoires -->
+
+  <!-- ══ NOTE DE MORGANE ══ -->
+  <div class="morgane-note r">
+    <div>
+      <p class="mn-eyebrow">Un mot de Morgane</p>
+      <blockquote class="mn-quote">
+        "Je recommande <strong>uniquement ce que j'utiliserais</strong> dans mon propre jardin."
+      </blockquote>
+      <p class="mn-text">
+        Si vous avez une question sur un produit spécifique ou sur votre situation (nombre de poules, taille du jardin, budget), posez-la en commentaire sur TikTok ou envoyez-moi un message. Je réponds à tout le monde.
+      </p>
+    </div>
+    <a href="/a-propos/" class="mn-btn">Mon histoire →</a>
+  </div>
+
+  <!-- ══ TABLEAU RÉCAPITULATIF ══ -->
+  <div class="r r1" style="margin-bottom:56px;">
+    <div style="margin-bottom:20px;">
+      <p style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--fern);margin-bottom:5px;">Résumé</p>
+      <h2 style="font-family:var(--serif);font-size:28px;font-weight:600;color:var(--earth);">Comparatif rapide</h2>
+    </div>
+    <table class="recap-table">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Pour qui</th>
+          <th>Note</th>
+          <th>Prix approx.</th>
+          <th>Lien</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Eglu Go UP <span class="badge-me">Mon choix</span></td>
+          <td>2–3 poules</td>
+          <td><span class="star">★★★★★</span></td>
+          <td>~400–550€</td>
+          <td><a href="/recommande/eglu-go-up/" rel="sponsored nofollow" target="_blank">Voir →</a></td>
+        </tr>
+        <tr>
+          <td>Eglu Cube</td>
+          <td>4–6 poules</td>
+          <td><span class="star">★★★★★</span></td>
+          <td>~700–900€</td>
+          <td><a href="/recommande/eglu-cube/" rel="sponsored nofollow" target="_blank">Voir →</a></td>
+        </tr>
+        <tr>
+          <td>Eglu Go</td>
+          <td>2–3 poules (budget)</td>
+          <td><span class="star">★★★★</span><span class="star" style="opacity:.3;">★</span></td>
+          <td>~300–450€</td>
+          <td><a href="/recommande/eglu-go/" rel="sponsored nofollow" target="_blank">Voir →</a></td>
+        </tr>
+        <tr>
+          <td>Walk-In Run</td>
+          <td>Tous élevages</td>
+          <td><span class="star">★★★★★</span></td>
+          <td>~250–600€</td>
+          <td><a href="/recommande/walk-in-run/" rel="sponsored nofollow" target="_blank">Voir →</a></td>
+        </tr>
+        <tr>
+          <td>Porte automatique</td>
+          <td>Tous Eglu</td>
+          <td><span class="star">★★★★★</span></td>
+          <td>~150–200€</td>
+          <td><a href="/recommande/porte-automatique-omlet/" rel="sponsored nofollow" target="_blank">Voir →</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /#mrec -->

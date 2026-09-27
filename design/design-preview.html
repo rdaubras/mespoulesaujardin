@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charte Graphique — Mes Poules au Jardin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* === PALETTE PRINCIPALE === */
+      --forest:   #2C5F4A;   /* Vert forêt — couleur marque */
+      --fern:     #4A8C6F;   /* Vert fougère — secondaire */
+      --mint:     #A8D5BA;   /* Vert menthe — accents légers */
+      --terra:    #D4724A;   /* Terracotta — CTA, accents chauds */
+      --honey:    #F0B860;   /* Miel — détails, icônes */
+      --cream:    #FAF6EF;   /* Crème chaude — fond de page */
+      --parchment:#F0E8D8;   /* Parchemin — fonds de cartes */
+      --earth:    #2A1F16;   /* Terre sombre — texte principal */
+      --bark:     #7A6250;   /* Écorce — texte secondaire */
+      --fog:      #E8E2D8;   /* Brume — bordures, séparateurs */
+
+      /* === TYPOGRAPHIE === */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Nunito', -apple-system, sans-serif;
+
+      /* === ESPACEMENTS === */
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(42, 31, 22, 0.08);
+      --shadow-md: 0 8px 40px rgba(42, 31, 22, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      color: var(--earth);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      padding: 48px 24px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .brand-header svg { width: 52px; height: 52px; }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--bark);
+    }
+
+    .doc-title {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .doc-subtitle {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--bark);
+      margin-bottom: 56px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--earth);
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 1.5px solid var(--fog);
+    }
+
+    /* ── LOGO PREVIEW ── */
+    .logo-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .logo-card {
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-card.light { background: var(--cream); border: 1.5px solid var(--fog); }
+    .logo-card.dark  { background: var(--forest); }
+    .logo-card.parchment { background: var(--parchment); border: 1.5px solid var(--fog); }
+    .logo-card.terra { background: var(--terra); }
+
+    .logo-card svg { max-width: 280px; width: 100%; height: auto; }
+    .logo-card.dark  svg text { fill: white !important; }
+    .logo-card.dark  svg line { stroke: rgba(255,255,255,0.3) !important; }
+
+    .logo-card-label {
+      font-size: 11px;
+      color: var(--bark);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .logo-card-wrap { display: flex; flex-direction: column; }
+
+    /* Favicon row */
+    .favicon-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      align-items: flex-end;
+    }
+    .favicon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .favicon-item span {
+      font-size: 11px;
+      color: var(--bark);
+      letter-spacing: 1px;
+    }
+    .favicon-item svg {
+      border-radius: 22%;
+      display: block;
+    }
+
+    /* ── PALETTE ── */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .swatch {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .swatch-color {
+      height: 80px;
+    }
+
+    .swatch-info {
+      background: white;
+      padding: 12px 14px;
+    }
+
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--earth);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-size: 11px;
+      color: var(--bark);
+      font-family: 'Courier New', monospace;
+    }
+
+    .swatch-role {
+      font-size: 10px;
+      color: var(--fern);
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── TYPOGRAPHIE ── */
+    .type-samples { display: flex; flex-direction: column; gap: 20px; }
+
+    .type-sample {
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .type-meta {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 12px;
+    }
+
+    .sample-h1 { font-family: var(--font-display); font-size: 44px; font-weight: 700; color: var(--forest); line-height: 1.1; margin-bottom: 6px; }
+    .sample-h2 { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--earth); line-height: 1.2; margin-bottom: 4px; }
+    .sample-h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--earth); line-height: 1.3; margin-bottom: 4px; }
+    .sample-body { font-family: var(--font-body); font-size: 16px; font-weight: 400; color: var(--earth); line-height: 1.8; }
+    .sample-caption { font-family: var(--font-body); font-size: 13px; font-weight: 400; color: var(--bark); margin-top: 4px; }
+    .sample-italic { font-family: var(--font-display); font-size: 20px; font-style: italic; color: var(--bark); }
+
+    /* ── COMPOSANTS ── */
+    .components-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .component-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .component-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 20px;
+    }
+
+    /* Boutons */
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-primary {
+      background: var(--terra);
+      color: white;
+      box-shadow: 0 4px 16px rgba(212, 114, 74, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--forest);
+      color: white;
+      box-shadow: 0 4px 16px rgba(44, 95, 74, 0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--forest);
+      border: 2px solid var(--forest);
+    }
+
+    .btn-ghost {
+      background: var(--parchment);
+      color: var(--bark);
+    }
+
+    /* CTA Affiliation */
+    .cta-affiliation {
+      background: linear-gradient(135deg, var(--forest) 0%, var(--fern) 100%);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: white;
+    }
+
+    .cta-aff-text h4 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .cta-aff-text p {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .btn-cta-omlet {
+      background: var(--terra);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    /* Badge article -->
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-forest { background: rgba(44,95,74,0.12); color: var(--forest); }
+    .badge-terra  { background: rgba(212,114,74,0.12); color: var(--terra); }
+    .badge-honey  { background: rgba(240,184,96,0.2); color: #9A6B1E; }
+
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* ── ARTICLE CARD PREVIEW ── */
+    .article-preview {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+    }
+
+    .article-img {
+      background: linear-gradient(160deg, var(--fern), var(--forest));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .article-img svg { width: 80px; height: 80px; opacity: 0.9; }
+
+    .article-body { padding: 24px 28px; }
+    .article-category {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 8px;
+    }
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--earth);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .article-body p {
+      font-size: 14px;
+      color: var(--bark);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .article-meta {
+      font-size: 12px;
+      color: var(--bark);
+      display: flex;
+      gap: 16px;
+    }
+
+    /* ── KADENCE CONFIG BOX ── */
+    .config-box {
+      background: var(--earth);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      color: white;
+    }
+
+    .config-box h4 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--mint);
+      margin-bottom: 20px;
+    }
+
+    .config-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .config-table th {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--bark);
+      padding: 0 0 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .config-table td {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      vertical-align: middle;
+    }
+
+    .config-table td:first-child { color: rgba(255,255,255,0.6); width: 200px; }
+    .config-table td:nth-child(2) { font-family: 'Courier New', monospace; color: var(--honey); }
+    .config-table td:last-child { color: rgba(255,255,255,0.45); font-size: 12px; }
+
+    .color-dot {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-right: 8px;
+      vertical-align: middle;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* ── FOOTER ── */
+    .doc-footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1.5px solid var(--fog);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .doc-footer p { font-size: 12px; color: var(--bark); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="brand-header">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50" fill="#2C5F4A"/>
+      <path d="M22,52 C11,39 10,24 18,16 C20,30 22,44 22,52Z" fill="white"/>
+      <path d="M20,59 C8,48 6,32 14,22 C17,37 19,51 20,59Z" fill="white" opacity="0.55"/>
+      <ellipse cx="47" cy="63" rx="27" ry="19" fill="white"/>
+      <path d="M56,48 Q65,43 68,36 Q64,45 59,51Z" fill="white"/>
+      <circle cx="68" cy="30" r="14" fill="white"/>
+      <path d="M24,61 Q43,55 61,62 Q43,70 24,67Z" fill="#2C5F4A" opacity="0.10"/>
+      <path d="M60,18 Q63,11 66,17 Q68,9 71,16 Q73,10 76,16" stroke="#D4724A" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+      <path d="M80,27 L88,30 L80,34Z" fill="#F0B860"/>
+      <ellipse cx="82" cy="37" rx="2.8" ry="3.8" fill="#D4724A"/>
+      <circle cx="72" cy="27" r="3.8" fill="#2C5F4A"/>
+      <circle cx="73.2" cy="26" r="1.4" fill="white"/>
+      <path d="M40,90 Q34,82 38,78 Q44,83 40,90Z" fill="#A8D5BA" opacity="0.75"/>
+      <path d="M50,92 Q50,84 55,80 Q57,86 50,92Z" fill="#A8D5BA" opacity="0.75"/>
+      <path d="M60,90 Q66,82 62,78 Q57,83 60,90Z" fill="#A8D5BA" opacity="0.75"/>
+    </svg>
+    <span class="brand-name">Mes Poules au Jardin</span>
+  </div>
+
+  <h1 class="doc-title">Charte Graphique</h1>
+  <p class="doc-subtitle">IRIS — Designer Graphique &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; Juin 2026</p>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SECTION 1 — LOGO                      -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">01</p>
+    <h2 class="section-title">Logo & Favicon</h2>
+
+    <div class="logo-showcase">
+
+      <!-- Fond clair -->
+      <div class="logo-card-wrap">
+        <div class="logo-card light">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80">
+            <g transform="translate(0,0)">
+              <circle cx="40" cy="40" r="38" fill="#2C5F4A"/>
+              <path d="M14,43 C6,33 5,21 11,14 C13,25 14,36 14,43Z" fill="white"/>
+              <path d="M13,49 C4,40 3,27 9,19 C12,30 13,41 13,49Z" fill="white" opacity="0.5"/>
+              <ellipse cx="34" cy="54" rx="21" ry="15" fill="white"/>
+              <path d="M43,40 Q50,35 52,29 Q49,37 45,42Z" fill="white"/>
+              <circle cx="52" cy="25" r="11" fill="white"/>
+              <path d="M16,52 Q30,47 46,52 Q30,58 16,56Z" fill="#2C5F4A" opacity="0.10"/>
+              <path d="M45,15 Q47,9 50,14 Q52,8 54.5,13 Q57,8 59,13" stroke="#D4724A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M62,23 L68,25.5 L62,28Z" fill="#F0B860"/>
+              <ellipse cx="64" cy="30" rx="2.2" ry="3" fill="#D4724A"/>
+              <circle cx="55" cy="22" r="3" fill="#2C5F4A"/>
+              <circle cx="56" cy="21.2" r="1.1" fill="white"/>
+              <path d="M30,73 Q25,66 28,62 Q33,66 30,73Z" fill="#A8D5BA" opacity="0.8"/>
+              <path d="M38,75 Q38,68 42,65 Q44,70 38,75Z" fill="#A8D5BA" opacity="0.8"/>
+              <path d="M47,73 Q52,66 49,62 Q44,66 47,73Z" fill="#A8D5BA" opacity="0.8"/>
+            </g>
+            <text x="92" y="34" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="700" fill="#2C5F4A" letter-spacing="0.5">Mes Poules</text>
+            <line x1="92" y1="41" x2="318" y2="41" stroke="#A8D5BA" stroke-width="0.8"/>
+            <text x="93" y="60" font-family="'Cormorant Garamond', Georgia, serif" font-size="16" font-weight="400" fill="#7A6250" letter-spacing="5">au Jardin</text>
+          </svg>
+        </div>
+        <p class="logo-card-label">Fond clair (usage principal)</p>
+      </div>
+
+      <!-- Fond sombre -->
+      <div class="logo-card-wrap">
+        <div class="logo-card dark">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80">
+            <g transform="translate(0,0)">
+              <circle cx="40" cy="40" r="38" fill="white" opacity="0.15"/>
+              <path d="M14,43 C6,33 5,21 11,14 C13,25 14,36 14,43Z" fill="white"/>
+              <path d="M13,49 C4,40 3,27 9,19 C12,30 13,41 13,49Z" fill="white" opacity="0.5"/>
+              <ellipse cx="34" cy="54" rx="21" ry="15" fill="white"/>
+              <path d="M43,40 Q50,35 52,29 Q49,37 45,42Z" fill="white"/>
+              <circle cx="52" cy="25" r="11" fill="white"/>
+              <path d="M45,15 Q47,9 50,14 Q52,8 54.5,13 Q57,8 59,13" stroke="#D4724A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M62,23 L68,25.5 L62,28Z" fill="#F0B860"/>
+              <ellipse cx="64" cy="30" rx="2.2" ry="3" fill="#D4724A"/>
+              <circle cx="55" cy="22" r="3" fill="rgba(44,95,74,0.8)"/>
+              <circle cx="56" cy="21.2" r="1.1" fill="white"/>
+            </g>
+            <text x="92" y="34" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="700" fill="white" letter-spacing="0.5">Mes Poules</text>
+            <line x1="92" y1="41" x2="318" y2="41" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <text x="93" y="60" font-family="'Cormorant Garamond', Georgia, serif" font-size="16" font-weight="400" fill="rgba(255,255,255,0.65)" letter-spacing="5">au Jardin</text>
+          </svg>
+        </div>
+        <p class="logo-card-label">Fond sombre (header, footer)</p>
+      </div>
+    </div>
+
+    <!-- Favicon en différentes tailles -->
+    <div class="favicon-row" style="margin-top:24px; align-items:flex-start;">
+      <div style="flex:1; background:white; border-radius:12px; padding:24px; box-shadow:0 4px 24px rgba(42,31,22,0.08);">
+        <p class="component-title" style="margin-bottom:16px;">Favicon — prévisualisations</p>
+        <div style="display:flex; gap:24px; align-items:flex-end; flex-wrap:wrap;">
+          <div class="favicon-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="64" height="64" style="border-radius:14px;">
+              <circle cx="50" cy="50" r="50" fill="#2C5F4A"/>
+              <path d="M22,52 C11,39 10,24 18,16 C20,30 22,44 22,52Z" fill="white"/>
+              <path d="M20,59 C8,48 6,32 14,22 C17,37 19,51 20,59Z" fill="white" opacity="0.55"/>
+              <ellipse cx="47" cy="63" rx="27" ry="19" fill="white"/>
+              <path d="M56,48 Q65,43 68,36 Q64,45 59,51Z" fill="white"/>
+              <circle cx="68" cy="30" r="14" fill="white"/>
+              <path d="M60,18 Q63,11 66,17 Q68,9 71,16 Q73,10 76,16" stroke="#D4724A" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+              <path d="M80,27 L88,30 L80,34Z" fill="#F0B860"/>
+              <ellipse cx="82" cy="37" rx="2.8" ry="3.8" fill="#D4724A"/>
+              <circle cx="72" cy="27" r="3.8" fill="#2C5F4A"/>
+              <circle cx="73.2" cy="26" r="1.4" fill="white"/>
+              <path d="M40,90 Q34,82 38,78 Q44,83 40,90Z" fill="#A8D5BA" opacity="0.75"/>
+              <path d="M50,92 Q50,84 55,80 Q57,86 50,92Z" fill="#A8D5BA" opacity="0.75"/>
+              <path d="M60,90 Q66,82 62,78 Q57,83 60,90Z" fill="#A8D5BA" opacity="0.75"/>
+            </svg>
+            <span>64 × 64px</span>
+          </div>
+          <div class="favicon-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32" style="border-radius:7px;">
+              <circle cx="50" cy="50" r="50" fill="#2C5F4A"/>
+              <path d="M22,52 C11,39 10,24 18,16 C20,30 22,44 22,52Z" fill="white"/>
+              <ellipse cx="47" cy="63" rx="27" ry="19" fill="white"/>
+              <path d="M56,48 Q65,43 68,36 Q64,45 59,51Z" fill="white"/>
+              <circle cx="68" cy="30" r="14" fill="white"/>
+              <path d="M60,18 Q63,11 66,17 Q68,9 71,16 Q73,10 76,16" stroke="#D4724A" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+              <path d="M80,27 L88,30 L80,34Z" fill="#F0B860"/>
+            </svg>
+            <span>32 × 32px</span>
+          </div>
+          <div class="favicon-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="16" height="16" style="border-radius:3px;">
+              <circle cx="50" cy="50" r="50" fill="#2C5F4A"/>
+              <ellipse cx="47" cy="60" rx="27" ry="19" fill="white"/>
+              <circle cx="68" cy="30" r="14" fill="white"/>
+            </svg>
+            <span>16 × 16px</span>
+          </div>
+          <div class="favicon-item" style="margin-left:16px; padding-left:16px; border-left:1px solid #E8E2D8;">
+            <div style="display:flex; gap:4px; align-items:center; background:#F0F0F0; padding:6px 10px; border-radius:8px; font-size:12px; font-family:sans-serif; color:#333;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="16" height="16" style="border-radius:3px; flex-shrink:0;">
+                <circle cx="50" cy="50" r="50" fill="#2C5F4A"/>
+                <ellipse cx="47" cy="60" rx="27" ry="19" fill="white"/>
+                <circle cx="68" cy="30" r="14" fill="white"/>
+              </svg>
+              mespoulesaujardin.fr
+            </div>
+            <span>Aperçu onglet Chrome</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SECTION 2 — PALETTE                   -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">02</p>
+    <h2 class="section-title">Palette de couleurs</h2>
+
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2C5F4A;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Vert Forêt</p>
+          <p class="swatch-hex">#2C5F4A</p>
+          <p class="swatch-role">Couleur principale / marque</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#4A8C6F;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Vert Fougère</p>
+          <p class="swatch-hex">#4A8C6F</p>
+          <p class="swatch-role">Secondaire / hover</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#A8D5BA;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Vert Menthe</p>
+          <p class="swatch-hex">#A8D5BA</p>
+          <p class="swatch-role">Accents légers / badges</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D4724A;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Terracotta</p>
+          <p class="swatch-hex">#D4724A</p>
+          <p class="swatch-role">CTA / boutons affiliation</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F0B860;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Miel</p>
+          <p class="swatch-hex">#F0B860</p>
+          <p class="swatch-role">Accents chauds / icônes</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FAF6EF;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Crème</p>
+          <p class="swatch-hex">#FAF6EF</p>
+          <p class="swatch-role">Fond de page principal</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F0E8D8; border:1px solid #e0d8c8;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Parchemin</p>
+          <p class="swatch-hex">#F0E8D8</p>
+          <p class="swatch-role">Fonds de cartes</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2A1F16;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Terre</p>
+          <p class="swatch-hex">#2A1F16</p>
+          <p class="swatch-role">Texte principal</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#7A6250;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Écorce</p>
+          <p class="swatch-hex">#7A6250</p>
+          <p class="swatch-role">Texte secondaire / meta</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E8E2D8; border:1px solid #d8d2c8;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Brume</p>
+          <p class="swatch-hex">#E8E2D8</p>
+          <p class="swatch-role">Bordures / séparateurs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SECTION 3 — TYPOGRAPHIE               -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">03</p>
+    <h2 class="section-title">Typographie</h2>
+
+    <div class="type-samples">
+      <div class="type-sample">
+        <p class="type-meta">Cormorant Garamond — Police d'affichage (titres, H1–H3)</p>
+        <p class="sample-h1">Élever des poules dans son jardin</p>
+        <p class="sample-h2">Avis sur le poulailler Eglu Cube</p>
+        <p class="sample-h3">Quelles races de poules choisir ?</p>
+        <p class="sample-italic">« Mes poules sont ma meilleure décision de jardinage. »</p>
+      </div>
+
+      <div class="type-sample">
+        <p class="type-meta">Nunito — Police de corps (articles, navigation, boutons)</p>
+        <p class="sample-body">Après des années à élever des poules dans mon jardin et à conseiller des milliers d'abonnés TikTok, une question revient constamment : quel poulailler choisir ? La réponse honnête ? Ça dépend du nombre de poules, du budget, et de si vous supportez de nettoyer pendant une heure.</p>
+        <p class="sample-caption">Publié le 3 juin 2025 · 8 minutes de lecture · Romain</p>
+      </div>
+
+      <div class="type-sample">
+        <p class="type-meta">Échelle typographique complète</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:baseline; gap:16px;">
+            <span style="font-size:11px; color:var(--bark); width:120px; flex-shrink:0;">H1 · 44px / 700</span>
+            <span style="font-family:var(--font-display); font-size:44px; font-weight:700; color:var(--forest); line-height:1;">Titre principal</span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:16px;">
+            <span style="font-size:11px; color:var(--bark); width:120px; flex-shrink:0;">H2 · 32px / 600</span>
+            <span style="font-family:var(--font-display); font-size:32px; font-weight:600; color:var(--earth);">Titre de section</span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:16px;">
+            <span style="font-size:11px; color:var(--bark); width:120px; flex-shrink:0;">H3 · 22px / 600</span>
+            <span style="font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--earth);">Sous-titre</span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:16px;">
+            <span style="font-size:11px; color:var(--bark); width:120px; flex-shrink:0;">Corps · 16px / 400</span>
+            <span style="font-family:var(--font-body); font-size:16px; color:var(--earth);">Texte d'article standard</span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:16px;">
+            <span style="font-size:11px; color:var(--bark); width:120px; flex-shrink:0;">Petit · 13px / 400</span>
+            <span style="font-family:var(--font-body); font-size:13px; color:var(--bark);">Méta, captions, dates</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SECTION 4 — COMPOSANTS UI             -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">04</p>
+    <h2 class="section-title">Composants</h2>
+
+    <div class="components-grid">
+
+      <!-- Boutons -->
+      <div class="component-card">
+        <p class="component-title">Boutons</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#">Voir sur Omlet →</a>
+          <a class="btn btn-secondary" href="#">Lire l'article</a>
+          <a class="btn btn-outline" href="#">En savoir plus</a>
+          <a class="btn btn-ghost" href="#">Toutes les catégories</a>
+        </div>
+      </div>
+
+      <!-- Badges -->
+      <div class="component-card">
+        <p class="component-title">Badges de catégories</p>
+        <div class="badge-row">
+          <span class="badge badge-forest">Poulaillers</span>
+          <span class="badge badge-forest">Races de poules</span>
+          <span class="badge badge-terra">Guide d'achat</span>
+          <span class="badge badge-terra">Avis produit</span>
+          <span class="badge badge-honey">Santé & Alimentation</span>
+          <span class="badge badge-honey">Jardin & Permaculture</span>
+        </div>
+      </div>
+
+      <!-- CTA Affiliation Omlet -->
+      <div class="component-card">
+        <p class="component-title">Bloc CTA affiliation (dans les articles)</p>
+        <div class="cta-affiliation">
+          <div class="cta-aff-text">
+            <h4>Poulailler Eglu Cube — Omlet</h4>
+            <p>Le poulailler que j'utilise depuis plusieurs mois. Nettoyage en 10 minutes, isolation excellent, résistant aux renards.</p>
+          </div>
+          <a class="btn-cta-omlet btn" href="#">Voir le prix →</a>
+        </div>
+      </div>
+
+      <!-- Article card -->
+      <div class="component-card">
+        <p class="component-title">Carte d'article (grille blog)</p>
+        <div class="article-preview">
+          <div class="article-img">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+              <path d="M22,52 C11,39 10,24 18,16 C20,30 22,44 22,52Z" fill="white"/>
+              <path d="M20,59 C8,48 6,32 14,22 C17,37 19,51 20,59Z" fill="white" opacity="0.4"/>
+              <ellipse cx="47" cy="63" rx="27" ry="19" fill="white"/>
+              <path d="M56,48 Q65,43 68,36 Q64,45 59,51Z" fill="white"/>
+              <circle cx="68" cy="30" r="14" fill="white"/>
+              <path d="M60,18 Q63,11 66,17 Q68,9 71,16 Q73,10 76,16" stroke="#F0B860" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M80,27 L88,30 L80,34Z" fill="#F0B860"/>
+            </svg>
+          </div>
+          <div class="article-body">
+            <p class="article-category">Guide d'achat</p>
+            <h3>Avis poulailler Eglu Cube : test complet et honnête</h3>
+            <p>J'ai hésité longtemps à cause du prix. Puis une de mes poules est morte à cause d'un poulailler mal ventilé...</p>
+            <div class="article-meta">
+              <span>3 juin 2025</span>
+              <span>8 min de lecture</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SECTION 5 — CONFIG KADENCE            -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">05</p>
+    <h2 class="section-title">Configuration Kadence</h2>
+
+    <div class="config-box">
+      <h4>Apparence → Personnaliser → Couleurs globales</h4>
+      <table class="config-table">
+        <thead>
+          <tr>
+            <th>Champ Kadence</th>
+            <th>Valeur hex</th>
+            <th>Rôle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Couleur palette 1</td>
+            <td><span class="color-dot" style="background:#2C5F4A;"></span>#2C5F4A</td>
+            <td>Vert Forêt — couleur principale</td>
+          </tr>
+          <tr>
+            <td>Couleur palette 2</td>
+            <td><span class="color-dot" style="background:#4A8C6F;"></span>#4A8C6F</td>
+            <td>Vert Fougère — secondaire</td>
+          </tr>
+          <tr>
+            <td>Couleur palette 3</td>
+            <td><span class="color-dot" style="background:#D4724A;"></span>#D4724A</td>
+            <td>Terracotta — CTA / boutons</td>
+          </tr>
+          <tr>
+            <td>Couleur palette 4</td>
+            <td><span class="color-dot" style="background:#F0B860;"></span>#F0B860</td>
+            <td>Miel — accents</td>
+          </tr>
+          <tr>
+            <td>Couleur palette 5</td>
+            <td><span class="color-dot" style="background:#A8D5BA;"></span>#A8D5BA</td>
+            <td>Menthe — accents légers</td>
+          </tr>
+          <tr>
+            <td>Couleur palette 6</td>
+            <td><span class="color-dot" style="background:#FAF6EF;"></span>#FAF6EF</td>
+            <td>Crème — fond de page</td>
+          </tr>
+          <tr>
+            <td>Couleur palette 7</td>
+            <td><span class="color-dot" style="background:#2A1F16;"></span>#2A1F16</td>
+            <td>Terre — texte principal</td>
+          </tr>
+          <tr>
+            <td>Couleur palette 8</td>
+            <td><span class="color-dot" style="background:#7A6250;"></span>#7A6250</td>
+            <td>Écorce — texte secondaire</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="config-box" style="margin-top:16px;">
+      <h4>Apparence → Personnaliser → Typographie</h4>
+      <table class="config-table">
+        <thead>
+          <tr>
+            <th>Champ Kadence</th>
+            <th>Valeur</th>
+            <th>Détail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Police des titres (H1–H4)</td>
+            <td>Cormorant Garamond</td>
+            <td>Google Fonts — Poids 400, 600, 700</td>
+          </tr>
+          <tr>
+            <td>Police du corps</td>
+            <td>Nunito</td>
+            <td>Google Fonts — Poids 300, 400, 600</td>
+          </tr>
+          <tr>
+            <td>Taille base corps</td>
+            <td>16px</td>
+            <td>Line-height 1.75</td>
+          </tr>
+          <tr>
+            <td>H1 — Taille</td>
+            <td>44px</td>
+            <td>Poids 700 — Couleur Forêt</td>
+          </tr>
+          <tr>
+            <td>H2 — Taille</td>
+            <td>32px</td>
+            <td>Poids 600 — Couleur Terre</td>
+          </tr>
+          <tr>
+            <td>H3 — Taille</td>
+            <td>24px</td>
+            <td>Poids 600 — Couleur Terre</td>
+          </tr>
+          <tr>
+            <td>Couleur fond page</td>
+            <td>#FAF6EF</td>
+            <td>Crème chaude</td>
+          </tr>
+          <tr>
+            <td>Couleur texte principal</td>
+            <td>#2A1F16</td>
+            <td>Terre sombre</td>
+          </tr>
+          <tr>
+            <td>Couleur liens</td>
+            <td>#2C5F4A</td>
+            <td>Vert Forêt — hover Fougère</td>
+          </tr>
+          <tr>
+            <td>Couleur boutons (fond)</td>
+            <td>#D4724A</td>
+            <td>Terracotta</td>
+          </tr>
+          <tr>
+            <td>Couleur boutons (texte)</td>
+            <td>#FFFFFF</td>
+            <td>Blanc</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <p>Charte Graphique v1.0 — <strong>Mes Poules au Jardin</strong></p>
+    <p>IRIS — Designer Graphique &nbsp;·&nbsp; Juin 2026</p>
+  </div>
+
+</body>
+</html>

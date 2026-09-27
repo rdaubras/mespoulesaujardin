@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" role="img" aria-label="Mes Poules au Jardin">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- === ICÔNE (badge circulaire 80×80) === -->
+  <g transform="translate(0,0)">
+    <circle cx="40" cy="40" r="38" fill="#2C5F4A"/>
+
+    <!-- Queue -->
+    <path d="M14,43 C6,33 5,21 11,14 C13,25 14,36 14,43Z" fill="white"/>
+    <path d="M13,49 C4,40 3,27 9,19 C12,30 13,41 13,49Z" fill="white" opacity="0.5"/>
+
+    <!-- Corps -->
+    <ellipse cx="34" cy="54" rx="21" ry="15" fill="white"/>
+
+    <!-- Cou -->
+    <path d="M43,40 Q50,35 52,29 Q49,37 45,42Z" fill="white"/>
+
+    <!-- Tête -->
+    <circle cx="52" cy="25" r="11" fill="white"/>
+
+    <!-- Aile (subtile) -->
+    <path d="M16,52 Q30,47 46,52 Q30,58 16,56Z" fill="#2C5F4A" opacity="0.10"/>
+
+    <!-- Crête -->
+    <path d="M45,15 Q47,9 50,14 Q52,8 54.5,13 Q57,8 59,13"
+          stroke="#D4724A" stroke-width="2.5" fill="none"
+          stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Bec -->
+    <path d="M62,23 L68,25.5 L62,28Z" fill="#F0B860"/>
+
+    <!-- Caroncule -->
+    <ellipse cx="64" cy="30" rx="2.2" ry="3" fill="#D4724A"/>
+
+    <!-- Oeil -->
+    <circle cx="55" cy="22" r="3" fill="#2C5F4A"/>
+    <circle cx="56" cy="21.2" r="1.1" fill="white"/>
+
+    <!-- Feuilles bas -->
+    <path d="M30,73 Q25,66 28,62 Q33,66 30,73Z" fill="#A8D5BA" opacity="0.8"/>
+    <path d="M38,75 Q38,68 42,65 Q44,70 38,75Z" fill="#A8D5BA" opacity="0.8"/>
+    <path d="M47,73 Q52,66 49,62 Q44,66 47,73Z" fill="#A8D5BA" opacity="0.8"/>
+  </g>
+
+  <!-- === TEXTE === -->
+  <!-- "Mes Poules" — grand, gras, serif -->
+  <text
+    x="92" y="34"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-size="28"
+    font-weight="700"
+    fill="#2C5F4A"
+    letter-spacing="0.5">Mes Poules</text>
+
+  <!-- Ligne de séparation fine -->
+  <line x1="92" y1="41" x2="318" y2="41" stroke="#A8D5BA" stroke-width="0.8"/>
+
+  <!-- "au Jardin" — plus petit, espacé, chaleureux -->
+  <text
+    x="93" y="60"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-size="16"
+    font-weight="400"
+    fill="#7A6250"
+    letter-spacing="5">au Jardin</text>
+</svg>

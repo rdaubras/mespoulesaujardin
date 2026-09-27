@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes Poules au Jardin — Morgane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest:    #2C5F4A;
+      --fern:      #4A8C6F;
+      --mint:      #A8D5BA;
+      --terra:     #D4724A;
+      --honey:     #F0B860;
+      --cream:     #FAF6EF;
+      --parchment: #F0E8D8;
+      --earth:     #2A1F16;
+      --bark:      #7A6250;
+      --fog:       #E8E2D8;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --sans:      'Nunito', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--earth);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%       { transform: translateY(-8px) rotate(1deg); }
+    }
+    @keyframes sway {
+      0%, 100% { transform: rotate(-2deg); }
+      50%       { transform: rotate(2deg); }
+    }
+
+    .reveal { animation: fadeUp 0.8s ease both; }
+    .reveal-1 { animation-delay: 0.1s; }
+    .reveal-2 { animation-delay: 0.25s; }
+    .reveal-3 { animation-delay: 0.4s; }
+    .reveal-4 { animation-delay: 0.55s; }
+    .reveal-5 { animation-delay: 0.7s; }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250, 246, 239, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--fog);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeIn 0.6s ease both;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+    }
+    .nav-logo-text {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--forest);
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--bark);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--forest); }
+
+    .nav-cta {
+      background: var(--terra);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 13px !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; color: white !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding: 120px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-botanical-tl {
+      position: absolute;
+      top: 80px;
+      left: -20px;
+      width: 220px;
+      opacity: 0.18;
+      animation: sway 6s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .hero-botanical-br {
+      position: absolute;
+      bottom: 60px;
+      right: -10px;
+      width: 180px;
+      opacity: 0.15;
+      animation: sway 8s ease-in-out infinite reverse;
+      transform-origin: bottom center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--fern);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(46px, 5.5vw, 72px);
+      font-weight: 300;
+      color: var(--earth);
+      line-height: 1.08;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--forest);
+      font-weight: 400;
+    }
+    .hero-title strong {
+      font-weight: 700;
+      color: var(--forest);
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--bark);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 460px;
+    }
+    .hero-desc span {
+      color: var(--earth);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--terra);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(212,114,74,0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212,114,74,0.45);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--forest);
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid var(--forest);
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover {
+      background: var(--forest);
+      color: white;
+    }
+
+    /* Hero right — image card */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-img-card {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(44,95,74,0.2);
+      animation: float 6s ease-in-out infinite;
+      position: relative;
+    }
+    .hero-img-card img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(250,246,239,0.95);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .hero-badge-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 2px;
+    }
+    .hero-badge-sub {
+      font-size: 12px;
+      color: var(--bark);
+      letter-spacing: 0.5px;
+    }
+
+    .hero-stat-card {
+      position: absolute;
+      top: 32px;
+      right: -28px;
+      background: var(--forest);
+      color: white;
+      border-radius: 16px;
+      padding: 20px 24px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(44,95,74,0.35);
+    }
+    .hero-stat-number {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--honey);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--parchment);
+      padding: 20px 40px;
+      border-top: 1px solid var(--fog);
+      border-bottom: 1px solid var(--fog);
+    }
+    .trust-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--bark);
+      font-weight: 600;
+    }
+    .trust-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--mint);
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 36px;
+      padding-bottom: 16px;
+      border-bottom: 1.5px solid var(--fog);
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 600;
+      color: var(--earth);
+    }
+    .section-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--mint);
+      padding-bottom: 2px;
+      white-space: nowrap;
+    }
+    .section-link:hover { border-color: var(--terra); color: var(--terra); }
+
+    /* ── ARTICLES ── */
+    .articles-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 20px;
+    }
+
+    /* Featured large card */
+    .card-featured {
+      grid-row: span 2;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(42,31,22,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-featured:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(42,31,22,0.13);
+    }
+    .card-featured .card-img {
+      height: 300px;
+      overflow: hidden;
+    }
+    .card-featured .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .card-featured:hover .card-img img { transform: scale(1.04); }
+    .card-featured .card-body { padding: 28px 32px 32px; flex: 1; }
+
+    /* Small cards */
+    .card-small {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(42,31,22,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      gap: 0;
+    }
+    .card-small:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(42,31,22,0.12);
+    }
+    .card-small .card-img {
+      width: 140px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .card-small .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .card-small:hover .card-img img { transform: scale(1.06); }
+    .card-small .card-body {
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-category {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 8px;
+    }
+    .card-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--earth);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .card-small .card-title { font-size: 16px; }
+    .card-excerpt {
+      font-size: 14px;
+      color: var(--bark);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .card-meta {
+      font-size: 12px;
+      color: var(--bark);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .card-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--fog); }
+
+    /* ── ABOUT ── */
+    .about-section {
+      background: var(--forest);
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-bg-text {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-family: var(--serif);
+      font-size: 200px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .about-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 20px;
+    }
+    .about-quote {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 300;
+      color: white;
+      line-height: 1.25;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .about-quote strong { font-weight: 700; font-style: normal; color: var(--honey); }
+    .about-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .btn-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background 0.2s;
+    }
+    .btn-light:hover { background: rgba(255,255,255,0.2); }
+
+    .about-visual {
+      position: relative;
+    }
+    .about-photo {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+    }
+    .about-photo img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .about-tiktok-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: black;
+      color: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+    }
+    .tiktok-icon { font-size: 24px; }
+    .tiktok-info { }
+    .tiktok-followers { font-family: var(--serif); font-size: 22px; font-weight: 700; color: white; line-height: 1; }
+    .tiktok-label { font-size: 11px; color: rgba(255,255,255,0.6); }
+
+    /* ── PRODUCTS ── */
+    .products-section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(42,31,22,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 56px rgba(42,31,22,0.14);
+    }
+    .product-img {
+      height: 200px;
+      overflow: hidden;
+      background: var(--parchment);
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-img img { transform: scale(1.06); }
+    .product-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-tag {
+      display: inline-block;
+      background: rgba(44,95,74,0.08);
+      color: var(--forest);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+      align-self: flex-start;
+    }
+    .product-name {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--earth);
+      margin-bottom: 8px;
+    }
+    .product-desc {
+      font-size: 14px;
+      color: var(--bark);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .product-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--terra);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .product-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(212,114,74,0.4);
+    }
+    .product-note {
+      font-size: 11px;
+      color: var(--bark);
+      font-style: italic;
+    }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-section {
+      background: var(--parchment);
+      border-top: 1px solid var(--fog);
+      border-bottom: 1px solid var(--fog);
+      padding: 80px 40px;
+    }
+    .newsletter-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .newsletter-emoji { font-size: 40px; margin-bottom: 20px; display: block; }
+    .newsletter-title {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 14px;
+      line-height: 1.15;
+    }
+    .newsletter-subtitle {
+      font-size: 16px;
+      color: var(--bark);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      max-width: 440px;
+      margin: 0 auto 16px;
+    }
+    .newsletter-input {
+      flex: 1;
+      padding: 14px 20px;
+      border: 1.5px solid var(--fog);
+      border-radius: 50px;
+      font-family: var(--sans);
+      font-size: 14px;
+      background: white;
+      color: var(--earth);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-input:focus { border-color: var(--forest); }
+    .newsletter-input::placeholder { color: var(--bark); opacity: 0.6; }
+    .newsletter-submit {
+      background: var(--forest);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 50px;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .newsletter-submit:hover { background: var(--fern); }
+    .newsletter-disclaimer {
+      font-size: 12px;
+      color: var(--bark);
+      opacity: 0.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--earth);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 40px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+    }
+    .footer-brand span { color: var(--honey); }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: white; }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 100px 20px 60px;
+        min-height: auto;
+      }
+      .hero-visual { display: none; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .card-featured { grid-row: span 1; }
+      .card-small { flex-direction: column; }
+      .card-small .card-img { width: 100%; height: 180px; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .articles-section, .products-section { padding: 60px 20px; }
+      .about-section { padding: 60px 20px; }
+      .newsletter-section { padding: 60px 20px; }
+      .newsletter-form { flex-direction: column; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .trust-inner { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg class="nav-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" fill="#2C5F4A"/>
+        <path d="M22,52 C11,39 10,24 18,16 C20,30 22,44 22,52Z" fill="white"/>
+        <path d="M20,59 C8,48 6,32 14,22 C17,37 19,51 20,59Z" fill="white" opacity="0.55"/>
+        <ellipse cx="47" cy="63" rx="27" ry="19" fill="white"/>
+        <path d="M56,48 Q65,43 68,36 Q64,45 59,51Z" fill="white"/>
+        <circle cx="68" cy="30" r="14" fill="white"/>
+        <path d="M60,18 Q63,11 66,17 Q68,9 71,16 Q73,10 76,16" stroke="#D4724A" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+        <path d="M80,27 L88,30 L80,34Z" fill="#F0B860"/>
+        <ellipse cx="82" cy="37" rx="2.8" ry="3.8" fill="#D4724A"/>
+        <circle cx="72" cy="27" r="3.8" fill="#2C5F4A"/>
+        <circle cx="73.2" cy="26" r="1.4" fill="white"/>
+      </svg>
+      <span class="nav-logo-text">Mes Poules au Jardin</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/blog/">Articles</a></li>
+      <li><a href="/poulaillers/">Poulaillers</a></li>
+      <li><a href="/races-de-poules/">Races</a></li>
+      <li><a href="/a-propos/">Morgane</a></li>
+      <li><a href="/mes-recommandations/" class="nav-cta">Mes recommandations</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section style="position:relative; background:var(--cream);">
+
+    <!-- Botanical background decorations -->
+    <svg class="hero-botanical-tl" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100,280 Q80,200 40,160 Q60,170 80,190 Q60,140 20,100 Q50,120 70,150 Q50,100 30,50 Q65,90 80,130 Q75,80 60,20 Q90,70 90,120 Q95,70 80,10 Q110,60 100,120 Q115,70 110,10 Q130,65 115,120 Q125,75 140,20 Q145,80 120,130 Q140,95 170,60 Q155,110 130,150 Q160,120 185,100 Q165,145 140,165 Q170,155 190,165 Q160,185 130,185 Q150,195 165,210 Q130,205 115,215 Q130,230 140,260 Q115,245 105,260 L100,280Z" fill="#2C5F4A"/>
+    </svg>
+
+    <svg class="hero-botanical-br" viewBox="0 0 180 260" xmlns="http://www.w3.org/2000/svg" style="right:-10px; bottom:40px;">
+      <path d="M90,250 Q70,180 30,140 Q55,155 75,175 Q55,125 15,85 Q48,108 65,138 Q48,88 25,38 Q62,80 75,118 Q72,68 55,10 Q88,58 85,108 Q92,58 78,5 Q108,52 95,108 Q115,60 112,5 Q132,58 112,108 Q128,68 158,32 Q142,90 115,128 Q148,96 175,58 Q158,110 128,132 Q160,118 180,128 Q148,150 118,150 L90,250Z" fill="#4A8C6F"/>
+    </svg>
+
+    <div class="hero">
+      <div>
+        <p class="hero-eyebrow reveal reveal-1">Élevage familial au naturel</p>
+        <h1 class="hero-title reveal reveal-2">
+          Des poules<br>
+          <em>heureuses</em><br>
+          dans <strong>votre</strong><br>
+          jardin
+        </h1>
+        <p class="hero-desc reveal reveal-3">
+          Je m'appelle <span>Morgane</span>. J'élève 3 ISA Brown dans mon jardin et je partage tout ce que j'apprends — les bons coups, les erreurs, et les produits qui changent vraiment la vie.
+        </p>
+        <div class="hero-actions reveal reveal-4">
+          <a href="/mes-recommandations/" class="btn-primary">Mes recommandations →</a>
+          <a href="/blog/" class="btn-outline">Tous les articles</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal reveal-3">
+        <div class="hero-img-card">
+          <img
+            src="https://cdn.omlet.com/images/cache/1278/718/your-hens-will-love-the-design-of-the-eglu-go-up-chicken-coop-dc.jpg"
+            alt="Poulailler Eglu Go UP dans le jardin de Morgane"
+          />
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-name">Morgane</div>
+          <div class="hero-badge-sub">3 ISA Brown · Eglu Go UP</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-number">[X]K</div>
+          <div class="hero-stat-label">TikTok</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TRUST STRIP ══════════════ -->
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <span class="trust-dot"></span>
+        3 ISA Brown au jardin
+      </div>
+      <div class="trust-item">
+        <span class="trust-dot"></span>
+        Testée personnellement
+      </div>
+      <div class="trust-item">
+        <span class="trust-dot"></span>
+        Avis honnêtes, sans filtre
+      </div>
+      <div class="trust-item">
+        <span class="trust-dot"></span>
+        Affiliée Omlet — commissions transparentes
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ ARTICLES ══════════════ -->
+  <section class="articles-section">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-label">Le blog</p>
+        <h2 class="section-title">Derniers articles</h2>
+      </div>
+      <a href="/blog/" class="section-link">Tout voir →</a>
+    </div>
+
+    <div class="articles-grid">
+
+      <!-- Article principal -->
+      <a href="/avis-poulailler-eglu-go-up/" class="card-featured reveal reveal-2">
+        <div class="card-img">
+          <img src="https://cdn.omlet.com/images/cache/1278/718/eglu-go-up-chicken-coop-perfect-for-any-backyard-dc.jpg" alt="Avis Eglu Go UP" />
+        </div>
+        <div class="card-body">
+          <p class="card-category">Avis produit</p>
+          <h3 class="card-title">Avis poulailler Eglu Go UP : mon test honnête avec 3 poules</h3>
+          <p class="card-excerpt">J'avais 3 ISA Brown et un vieux poulailler en bois. J'ai fini par commander l'Eglu Go UP. Plusieurs mois plus tard, voilà ce que j'en pense vraiment.</p>
+          <div class="card-meta">
+            <span>3 juin 2025</span>
+            <span class="card-meta-dot"></span>
+            <span>8 min de lecture</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 2 -->
+      <a href="/eglu-cube-vs-eglu-go/" class="card-small reveal reveal-3">
+        <div class="card-img">
+          <img src="https://cdn.omlet.com/images/cache/1276/718/eglu-cube-large-chicken-coop-new-dc.jpg" alt="Eglu Cube vs Eglu Go" />
+        </div>
+        <div class="card-body">
+          <p class="card-category">Comparatif</p>
+          <h3 class="card-title">Eglu Cube ou Eglu Go : comment choisir ?</h3>
+          <div class="card-meta" style="margin-top:8px;">
+            <span>3 juin 2025</span>
+            <span class="card-meta-dot"></span>
+            <span>6 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 3 -->
+      <a href="/meilleur-poulailler-jardin/" class="card-small reveal reveal-4">
+        <div class="card-img">
+          <img src="https://cdn.omlet.com/images/cache/1276/718/children-can-get-involved-with-chicken-keeping-using-omlets-innovative-chicken-coop-design-dc.jpg" alt="Meilleur poulailler jardin" />
+        </div>
+        <div class="card-body">
+          <p class="card-category">Guide d'achat</p>
+          <h3 class="card-title">Meilleur poulailler jardin 2025 : top 10 honnête</h3>
+          <div class="card-meta" style="margin-top:8px;">
+            <span>3 juin 2025</span>
+            <span class="card-meta-dot"></span>
+            <span>12 min</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ ABOUT MORGANE ══════════════ -->
+  <section class="about-section">
+    <div class="about-bg-text">Morgane</div>
+    <div class="about-inner">
+      <div class="reveal">
+        <p class="about-eyebrow">Qui suis-je ?</p>
+        <blockquote class="about-quote">
+          "Je voulais juste <strong>des œufs frais</strong> le matin.<br>
+          Je suis devenue éleveuse."
+        </blockquote>
+        <p class="about-text">
+          J'ai commencé avec 3 ISA Brown et aucune idée de ce que je faisais. Aujourd'hui je partage tout sur TikTok — les galères, les découvertes, et les produits qui ont vraiment changé mon quotidien avec mes poules.
+        </p>
+        <a href="/a-propos/" class="btn-light">Mon histoire →</a>
+      </div>
+
+      <div class="about-visual reveal reveal-2">
+        <div class="about-photo">
+          <img
+            src="https://cdn.omlet.com/images/cache/583/618/girl-collecting-eggs-from-inside-an-eglu-go-up-chicken-coop-mb.jpg"
+            alt="Morgane avec ses poules ISA Brown"
+          />
+        </div>
+        <div class="about-tiktok-badge">
+          <span class="tiktok-icon">♪</span>
+          <div class="tiktok-info">
+            <div class="tiktok-followers">[X]K</div>
+            <div class="tiktok-label">@mespoulesaujardin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PRODUITS FAVORIS ══════════════ -->
+  <section class="products-section">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-label">Affiliée Omlet</p>
+        <h2 class="section-title">Mes produits favoris</h2>
+      </div>
+      <a href="/mes-recommandations/" class="section-link">Tout voir →</a>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card reveal reveal-2">
+        <div class="product-img">
+          <img src="https://cdn.omlet.com/images/cache/1278/718/your-hens-will-love-the-design-of-the-eglu-go-up-chicken-coop-dc.jpg" alt="Eglu Go UP Omlet" />
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Mon poulailler</span>
+          <h3 class="product-name">Eglu Go UP</h3>
+          <p class="product-desc">Léger, facile à nettoyer en 10 min, résistant aux renards. Je l'utilise avec mes 3 ISA Brown depuis plusieurs mois.</p>
+          <div class="product-cta">
+            <a href="/recommande/eglu-go-up/" rel="sponsored nofollow" target="_blank" class="product-btn">Voir sur Omlet →</a>
+            <span class="product-note">Lien affilié</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-3">
+        <div class="product-img">
+          <img src="https://cdn.omlet.com/images/cache/1276/718/eglu-cube-large-chicken-coop-new-dc.jpg" alt="Eglu Cube Omlet" />
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Pour 4-6 poules</span>
+          <h3 class="product-name">Eglu Cube</h3>
+          <p class="product-desc">Le modèle premium. Isolation supérieure, plus grand, idéal pour les élevages qui grandissent.</p>
+          <div class="product-cta">
+            <a href="/recommande/eglu-cube/" rel="sponsored nofollow" target="_blank" class="product-btn">Voir sur Omlet →</a>
+            <span class="product-note">Lien affilié</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-4">
+        <div class="product-img">
+          <img src="https://cdn.omlet.com/images/cache/1276/718/build-a-customizable-haven-for-your-flock-by-adding-a-walk-in-chicken-run-dc.jpg" alt="Walk-In Run Omlet" />
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Enclos</span>
+          <h3 class="product-name">Walk-In Run</h3>
+          <p class="product-desc">Grand enclos modulaire et extensible. Solide, sécurisé, pour que vos poules aient vraiment de l'espace.</p>
+          <div class="product-cta">
+            <a href="/recommande/walk-in-run/" rel="sponsored nofollow" target="_blank" class="product-btn">Voir sur Omlet →</a>
+            <span class="product-note">Lien affilié</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ NEWSLETTER ══════════════ -->
+  <section class="newsletter-section">
+    <div class="newsletter-inner reveal">
+      <span class="newsletter-emoji">🐔</span>
+      <h2 class="newsletter-title">Mes conseils,<br>chaque semaine</h2>
+      <p class="newsletter-subtitle">Astuces d'élevage, nouveaux articles et bons plans Omlet — directement dans votre boîte mail. Pas de spam, désinscription en un clic.</p>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" class="newsletter-input" placeholder="votre@email.fr" />
+        <button type="submit" class="newsletter-submit">S'inscrire</button>
+      </form>
+      <p class="newsletter-disclaimer">Remplacer ce formulaire par le code Brevo</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Mes Poules <span>au Jardin</span></div>
+      <ul class="footer-links">
+        <li><a href="/blog/">Articles</a></li>
+        <li><a href="/mes-recommandations/">Recommandations</a></li>
+        <li><a href="/a-propos/">À propos</a></li>
+        <li><a href="/mentions-legales/">Mentions légales</a></li>
+        <li><a href="/politique-confidentialite/">RGPD</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 Mes Poules au Jardin · Morgane</p>
+    </div>
+  </footer>
+
+</body>
+</html>

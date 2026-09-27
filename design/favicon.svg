@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Fond cercle vert forêt -->
+  <circle cx="50" cy="50" r="50" fill="#2C5F4A"/>
+
+  <!-- Queue (derrière le corps) -->
+  <path d="M22,52 C11,39 10,24 18,16 C20,30 22,44 22,52Z" fill="white"/>
+  <path d="M20,59 C8,48 6,32 14,22 C17,37 19,51 20,59Z" fill="white" opacity="0.55"/>
+
+  <!-- Corps -->
+  <ellipse cx="47" cy="63" rx="27" ry="19" fill="white"/>
+
+  <!-- Cou (jointure tête-corps) -->
+  <path d="M56,48 Q65,43 68,36 Q64,45 59,51Z" fill="white"/>
+
+  <!-- Tête -->
+  <circle cx="68" cy="30" r="14" fill="white"/>
+
+  <!-- Détail aile -->
+  <path d="M24,61 Q43,55 61,62 Q43,70 24,67Z" fill="#2C5F4A" opacity="0.10"/>
+
+  <!-- Crête (terracotta) -->
+  <path d="M60,18 Q63,11 66,17 Q68,9 71,16 Q73,10 76,16"
+        stroke="#D4724A" stroke-width="3.2" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Bec (miel) -->
+  <path d="M80,27 L88,30 L80,34Z" fill="#F0B860"/>
+
+  <!-- Caroncule (terracotta) -->
+  <ellipse cx="82" cy="37" rx="2.8" ry="3.8" fill="#D4724A"/>
+
+  <!-- Oeil -->
+  <circle cx="72" cy="27" r="3.8" fill="#2C5F4A"/>
+  <circle cx="73.2" cy="26" r="1.4" fill="white"/>
+
+  <!-- Petites feuilles en bas du cercle -->
+  <path d="M40,90 Q34,82 38,78 Q44,83 40,90Z" fill="#A8D5BA" opacity="0.75"/>
+  <path d="M50,92 Q50,84 55,80 Q57,86 50,92Z" fill="#A8D5BA" opacity="0.75"/>
+  <path d="M60,90 Q66,82 62,78 Q57,83 60,90Z" fill="#A8D5BA" opacity="0.75"/>
+</svg>
